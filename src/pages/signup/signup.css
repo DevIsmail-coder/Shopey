@@ -1,8 +1,4 @@
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 .signup-container {
     display: flex;
     justify-content: center;
@@ -38,8 +34,8 @@
 
 .signupwrap{
     width: 92%;
-    height: 500px;
-    /* background-color: yellow; */
+    /* height: 500px; */
+    background-color: yellow;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -49,12 +45,14 @@
 .signupmain{
     display: flex;
     flex-direction: column;
-    /* background-color: green; */
+    background-color: green;
     gap: 10px;
 }
 .signuplabel{
+    width: 100%;
 font-size: 16px;
-font-weight: 450;
+background-color: blue;
+/* font-weight: 450; */
 }
 
 
