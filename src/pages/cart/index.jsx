@@ -8,14 +8,6 @@ import { IoMdArrowDropdown } from "react-icons/io";
 const Cart = () => {
     return (
         <div className='cartBody'>
-
-            <div className='cartHead'>
-                <p className='cartsP'>
-                    Sale Up To 50% Biggest Discounts. Hurry! Limited Period Offer
-                </p>
-                <a href="/shop" className='cartNow'>Shop Now</a>
-            </div>
-
             <div className='cartMiddle'>
                 <h2 className='middleName1'>Cart</h2>
                 <div className='middlepMan'>

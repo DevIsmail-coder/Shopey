@@ -1,6 +1,9 @@
 import React from 'react'
 import { TbTruckDelivery } from "react-icons/tb";
 import "./assure.css"
+import { HiOutlineCreditCard } from 'react-icons/hi';
+import { LiaIdCardSolid } from 'react-icons/lia';
+import { Ri24HoursLine } from 'react-icons/ri';
 
 const Assure = () => {
   return (
@@ -12,18 +15,18 @@ const Assure = () => {
             <p>Free delivery On All Orders</p>
         </div>
         <div className="icon_body">
-            <TbTruckDelivery  className='assure_icon'/>
-            <h4>Free & Fast Delivery</h4>
+            <HiOutlineCreditCard  className='assure_icon'/>
+            <h4>Secure Payment</h4>
             <p>Free delivery On All Orders</p>
         </div>
         <div className="icon_body">
-            <TbTruckDelivery  className='assure_icon'/>
-            <h4>Free & Fast Delivery</h4>
+            <LiaIdCardSolid  className='assure_icon'/>
+            <h4>Money Bank Guarantee</h4>
             <p>Free delivery On All Orders</p>
         </div>
         <div className="icon_body">
-            <TbTruckDelivery  className='assure_icon'/>
-            <h4>Free & Fast Delivery</h4>
+            <Ri24HoursLine  className='assure_icon'/>
+            <h4>Online Support </h4>
             <p>Free delivery On All Orders</p>
         </div>
       </div>

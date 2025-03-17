@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import "./hero.css"
-// import { BiChevronLeft, BiChevronRight } from "react-icons/bi"
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -85,12 +84,6 @@ const Hero = () => {
       <div className="h_hero">
         <div className="hero_slider"  style={{backgroundColor: currentSlide? "#DEF3F4": "#FFFBFB"}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         >
-          {/* <button className="nav-button prev" onClick={prevSlide}>
-            <BiChevronLeft className="nav-icon" />
-          </button>
-          <button className="nav-button next" onClick={nextSlide}>
-            <BiChevronRight className="nav-icon" />
-          </button> */}
           <div className="slider-content-fade">
             <div className={`slide ${fadeState} ${currentLayout}`}>
               <div className="image-container">
