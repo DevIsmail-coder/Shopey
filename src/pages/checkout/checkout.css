@@ -1,0 +1,322 @@
+.checkout_body{
+    width: 100%;
+    height: 100vh;
+    min-height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.checkut_hero{
+    width: 100%;
+    height: 25%;
+    background-color: #F3EAD8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.hero_direct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkout_wrapper{
+    width: 85%;
+    height: 80%;
+    min-height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.register_tab{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+   
+}
+.r_tab{
+    width: 100%;
+    height: 50px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+}
+.r_tab p{
+    font-size: 14px;
+    font-weight: normal;
+    font-family: "Roboto", sans-serif;
+    line-height: 40px;
+    padding-left: 30px;
+    margin-bottom: 0px;
+}
+
+.r_tab span{
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.r_tab_body{
+    width: 95%;
+    height: 80%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.input_field{
+    width: 60%;
+    height: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.input_area{
+    width: 50%;
+    height: 100%;
+    border: 2px solid lightskyblue;
+    outline: none;
+    padding: 10px;
+}
+.coupon_input_area{
+    width: 100%;
+    height: 100%;
+    border: 2px solid lightskyblue;
+    outline: none;
+    padding: 10px;
+}
+
+.tab_action{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.tab_button {
+    width: 120px;
+    min-width: max-content;
+    height: 45px;
+    position: relative;
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+.tab_button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #FF2020;
+    transition: left 0.4s ease-in-out;
+}
+.tab_button::after {
+    content: 'log in'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+.tab_button:hover::before {
+    left: 0;
+}
+
+.tab_button:after {
+    opacity: 1;
+}
+.tab_button:hover {
+    color: transparent; 
+}
+.coupon_button {
+    width: 150px;
+    height: 45px;
+    position: relative;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+    font-size: 16px;
+}
+
+
+.coupon_button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #FF2020;
+    transition: left 0.4s ease-in-out;
+}
+
+.coupon_button::after {
+    content: 'Apply Coupon'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.coupon_button:hover::before {
+    left: 0;
+}
+.coupon_button:hover::after {
+    opacity: 1;
+}
+/* .coupon_button:hover {
+    visibility: hidden; 
+} */
+
+.tab_checkbox {
+    width: 20px;
+    height: 20px;
+    padding-inline: 20px;
+    accent-color: red;
+}
+.billing_details{
+    width: 100%;
+    height: 100vh;
+    min-height: max-content;
+    display: flex;
+}
+.billing_card{
+    width: 60%;
+    height: 100vh;
+    min-height: max-content;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.order_details{
+    width: 40%;
+    height: 80%;
+    background-color: rgba(211, 211, 211, 0.656);
+    padding: 15px;
+}
+.name_input{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    gap: 20px;
+}
+.input_area{
+    width: 50%;
+    height: 100%;
+    border: 2px solid lightskyblue;
+    outline: none;
+    padding: 10px;
+}
+.company_input{
+    width: 100%;
+    height: 40px;
+}
+.company{
+    width: 100%;
+    height: 40px;
+    border: 2px solid lightskyblue;
+    padding: 10px;
+}
+
+.category{
+    width: 100%;
+    height: 40px;
+    border: 2px solid lightskyblue;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.arrow_down{
+    font-size: 20px;
+}
+
+.category_menu{
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    min-height: max-content;
+    background-color: white;
+    border: 1px solid lightgray;
+    top: 40px;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+    padding: 10px;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.address_card{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.address_input{
+    width: 100%;
+    height: 40px;
+    border: 2px solid lightskyblue;
+    padding: 10px;
+}
+
+.last_input{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.postcode_input{
+    width: 100%;
+    height: 40px;
+    border: 2px solid lightskyblue;
+    padding: 10px;
+}
+.acct_create{
+    width: 50%;
+    display: flex;
+    gap: 20px;
+}
+
+.notes{
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 20px;
+}
