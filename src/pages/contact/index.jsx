@@ -71,8 +71,6 @@ const Contact = () => {
                                <p className='bottomTier'>Mon to Fri 9am to 6pm </p>
                                </div>
                             </div>
-
-
                             <div className='boxBox'>
                                 <TfiEmail size={30} color='gray' />
                                 <div className='pBox'>
