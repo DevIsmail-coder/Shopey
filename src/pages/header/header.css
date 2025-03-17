@@ -177,6 +177,7 @@ color: #77CC6D;
     align-items: center;
     justify-content: space-between;
     font-family:  sans-serif;
+    /* background-color: yellow; */
 
     & span{
         font-weight: 450;
@@ -192,22 +193,42 @@ color: #77CC6D;
 .Headerbody2iispan{
     font-weight: 450;
     display: flex;
+    height: 100%;
+    align-items: center;
     justify-content: center;
     position: relative;
+    /* background-color: green; */
+}
+
+.Headerbody2iispan:hover{
+ .Headerbody2iidrop{
+    display: flex;
+    color: black;
+ }
 }
 
 .Headerbody2iidrop{
+    display: none;
     position: absolute;
     border-radius: 5px;
     border-top: 2px solid #FF2020;
-   display: flex;
    padding: 20px;
    flex-direction: column;
     gap: 20px;
-    top: 57px;
+    bottom: 0;
+    top: 95px;
     width: 180px;
+    height: 170px;
+    z-index: 100;
     
     background-color: #FFFFFF;
+
+
+
+}
+.Headerbody2iidrop:hover{
+    display: flex;
+
 
     & p{
         color: #141517;
