@@ -5,17 +5,17 @@ const Category_card = () => {
 
     const category =[
         {
-            img: "/src/assets/public/items1.jpg",
+            img: "/items1.jpg",
             title: "Men's Fashion",
             text: 'Shop Now'
         },
         {
-            img: "/src/assets/public/items2.jpg",
+            img: "/items2.jpg",
             title: "Women's Fashion",
             text: 'Shop Now'
         },
         {
-            img: "/src/assets/public/items3.jpg",
+            img: "/items3.jpg",
             title: "Baby Fashion",
             text: 'Shop Now'
         }
