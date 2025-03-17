@@ -7,7 +7,7 @@ import "./tranding.css"
 const Trending = () => {
     const trending=[
         {
-            img: "/public/latest1.jpg",
+            img: "/latest1.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",
             previous_price: "$300"
@@ -25,6 +25,7 @@ const Trending = () => {
             previous_price: "$300"
         },
         {
+
             img: "/public/latest4.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",

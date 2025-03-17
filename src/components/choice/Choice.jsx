@@ -13,7 +13,7 @@ import { BiSearch } from "react-icons/bi";
 const products = [
   {
     id: 1,
-    image: "/public/latest5.jpg",
+    image: "/latest5.jpg",
     name: "Go Fuzz Free Moisturizer",
     price: "$83.00",
     oldPrice: "$120.00",
