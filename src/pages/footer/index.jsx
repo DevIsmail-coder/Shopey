@@ -21,6 +21,52 @@ const Footer = () => {
                     <FaYoutube/>
                 </div>
             </div>
+            <div className="footer_body">
+                <div className="footer_body_wrapper">
+                    <div className="footer_body_content">
+                        <div className="footer_content">
+                            <h4>Shop Men</h4>
+                            <div className="footer_content_body">
+                            <p>Clothing Fashion</p>
+                            <p>winter</p>
+                            <p>Summer</p>
+                            <p>Formal</p>
+                            <p>Casual</p>
+                            </div>
+                        </div>
+                        <div className="footer_content">
+                            <h4>Shop Women</h4>
+                            <div className="footer_content_body">
+                            <p>Clothing Fashion</p>
+                            <p>winter</p>
+                            <p>Summer</p>
+                            <p>Formal</p>
+                            <p>Casual</p>
+                            </div>
+                        </div>
+                        <div className="footer_content">
+                            <h4>Baby Collection</h4>
+                            <div className="footer_content_body">
+                            <p>Clothing Fashion</p>
+                            <p>winter</p>
+                            <p>Summer</p>
+                            <p>Formal</p>
+                            <p>Casual</p>
+                            </div>
+                        </div>
+                        <div className="footer_content">
+                            <h4>Quick Links</h4>
+                            <div className="footer_content_body">
+                            <p>Clothing Fashion</p>
+                            <p>winter</p>
+                            <p>Summer</p>
+                            <p>Formal</p>
+                            <p>Casual</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
   )
