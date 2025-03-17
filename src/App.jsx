@@ -72,7 +72,7 @@ function App() {
         path: "/signuppage",
         element: <Signup />
       },
-      <Toaster />
+
     ])
   return <div className='Appbody'>
     <RouterProvider router={routes} />

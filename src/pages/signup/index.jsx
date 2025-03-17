@@ -97,6 +97,9 @@ const Signup = () => {
         try {
             const res = await axios.post(`${url}/register`, state.userInfor)
             setLoad(true)
+            navigate("/loginpage")
+            console.log(res);
+
 
             toast.success(res.message)
             navigate("/loginpage")
@@ -109,9 +112,13 @@ const Signup = () => {
 
             console.log(res);
             
+
         } catch (err) {
-            console.log(err);
             setLoad(false)
+            console.log(err);
+
+                   setLoad(false)
+
         }
     }
 
@@ -176,7 +183,6 @@ const Signup = () => {
                         Don’t have an account? <p className="signup-link" onClick={() => navigate("/loginpage")}>Login</p> here
                     </span>
 
-                    
                     <button className="signup-button" type="submit">{load ? "loading" : "sign up"}</button>
 
                 </div>
