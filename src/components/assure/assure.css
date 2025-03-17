@@ -1,0 +1,35 @@
+.assure_body{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.assure_body_wrapper{
+    width: 95%;
+    height: 90%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.icon_body{
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.assure_icon{
+    font-size: 60px;
+}
+
+.icon_body:last-child{
+    border-right: none;
+}

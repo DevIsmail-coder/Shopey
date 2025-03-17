@@ -1,0 +1,217 @@
+.breadcrumb-container {
+    text-align: center; 
+    padding: 40px 20px;
+    background-color: #f5ecdc;
+    height: 15%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333; 
+    margin-bottom: 10px; 
+
+
+p {
+    font-size: 14px;
+    color: #666; 
+}
+
+
+p a {
+    text-decoration: none; 
+    color: #666; 
+}
+
+p a:hover {
+    color: #333; 
+}
+}
+
+
+.product-card {
+    display: flex;
+    align-items: center;
+    background-color: #ff2120;
+    padding: 20px;
+    /* border-radius: 10px; */
+    height: 55%;
+    max-width: 78%;
+    margin-left: 8%;
+    /* margin: auto; */
+    color: white;
+    margin-top: 30px;
+}
+
+.product-image {
+    width: 300px;
+    height: auto;
+    /* border-radius: 5px; */
+    margin-left: 37px;
+}
+
+.product-info {
+    padding-left: 40px;
+}
+
+h2 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.author {
+    font-size: 14px;
+    /* opacity: 0.8; */
+}
+
+.price {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 45px;
+    margin-bottom: 5px;
+}
+
+.rating {
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.cart-button {
+    position: relative;
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+.cart-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #ff2120;/* Change this color to the desired sliding color */
+    transition: left 0.4s ease-in-out;
+}
+.cart-button::after {
+    content: 'Add To Cart'; /* The text you want to display */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+
+.cart-button:hover::before {
+    left: 0;
+}
+
+.cart-button:after {
+    opacity: 1;
+}
+.cart-button:hover {
+    color: transparent; /* Change this color to the desired text color on hover */
+}
+
+.share-button {
+    background: #ff2120;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.share-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: left 0.4s ease-in-out;
+    border-radius: 50%;
+}
+
+.share-button:hover::before {
+    left: 0;
+}
+
+.share-button:hover {
+    color: black;
+    background: white;
+}
+
+/* Ensure the icon is always above the ::before element */
+.share-button svg {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s ease-in-out;
+}
+
+.share-button:hover svg {
+    color: black;
+}
+
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    width: 29%;
+    margin-top: 9%;
+    margin-left: 13%;
+  }
+  
+  .tabs button {
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .tabs button:hover {
+    color: red;
+  }
+  
+  .tabs .active {
+    color: red;
+    border-bottom: 3px solid red;
+  }
+  
+  .content {
+    padding: 15px;
+    background: #fff;
+    margin-top: 10px;
+    margin-left: 13%;
+    width: 60%;
+    font-size: large;
+  }

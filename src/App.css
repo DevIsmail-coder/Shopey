@@ -1,0 +1,10 @@
+.Appbody{
+  width: 100%;
+  /* background-color: green; */
+}
+
+*{
+  padding: none;
+  margin: 0%;
+  box-sizing: border-box;
+}

@@ -1,0 +1,314 @@
+.cartBody {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartHead {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 0;
+}
+
+.cartsP {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+
+.cartNow {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    color: #CEBD9C;
+    position: relative;
+    cursor: pointer;
+}
+
+.cartNow::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #CEBD9C;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+}
+
+.cartMiddle {
+    width: 100%;
+    background-color: #F3EAD8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; 
+}
+
+.middleName1 {
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+
+.middlepMan {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.middlepMan p {
+    margin: 0;
+    font-size: 16px;
+    color: #74706B;
+}
+
+.middlepMan span {
+    color: #74706B;
+}
+
+.cartOrderpage{
+    height: 180vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cartorderBox {
+    width: 85%;
+    height: 100%;
+   background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.descBox1{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.descBoxp1{
+    width: 50%;
+
+}
+
+
+.descBox2{
+    width: 35%;
+    display: flex; 
+    justify-content: space-around;
+}
+
+
+.descBoxp3{
+    width: 15%;
+    display: flex; 
+    justify-content: end;  
+}
+
+.propertyDiv{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #EEEEEE;
+
+}
+
+
+.propertyDivA{
+   width: 65%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+}
+
+.propertyDivB{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+.propertyDivB1{
+    width: 50px;
+    height: 50px;
+
+}
+
+.propertyDivBtn{
+    display: flex;
+    flex-direction: column;
+
+
+    & button{
+        color:red;
+        width: 40px;
+        height: 27px;
+    
+    }
+}
+
+.totalDiv{
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.btnDivision{
+ width: 100%;
+ height: 5%;
+ display: flex;
+ align-items:center ;
+ border-bottom: 2px solid #EEEEEE;
+
+
+}
+
+.btnDivision1A{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: start;
+justify-content: space-between;
+padding-left: 85px;
+
+}
+
+.btnDivision1{
+    width: 160px;
+    height: 45px;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+}
+
+.subtotal{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 2px solid #EEEEEE;
+    gap: 200px;
+     
+}
+
+.shipping{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.shipping1{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+     
+}
+
+.shippingDiv2{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    
+}
+
+
+.shipping2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.btnDivision3{
+    width: 160px;
+    height: 45px;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+
+
+}
+
+.btnDivisionB{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items:center ;
+
+
+}
+
+.btnDivision1B{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    gap: 10px;
+
+}
+
+.btnDivision1BA{
+    width: 200px;
+    height: 45px;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+
+}
+
+.divisionDiv{
+width: 100%;
+height: 20%;
+display: flex;
+flex-direction: column;
+align-items: end;
+gap: 15px;
+border-bottom: 2px solid #EEEEEE;
+padding-bottom: 15px;
+
+
+}
+
+
+.stateDivision{
+  width: 350px;
+  height: 40px;
+  border: none; 
+  padding-left: 10px;
+  border-radius: 15px;
+  background-color: #F4F4F4;
+}
+
+.stateCode{
+    width: 350px;
+    height: 40px;
+    padding-left: 10px;
+    border: none;  
+    background-color: #F4F4F4;
+}

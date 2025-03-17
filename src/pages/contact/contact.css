@@ -1,0 +1,205 @@
+.contactBody {
+    width: 100%;
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+}
+
+.contactHead {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 0;
+}
+
+.salesP {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+
+.shopNow {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    color: #CEBD9C;
+    position: relative;
+    cursor: pointer;
+}
+
+.shopNow::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #CEBD9C;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+}
+
+.contactMiddle {
+    width: 100%;
+    background-color: #F3EAD8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; 
+}
+
+.middleName1 {
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+
+.middlepMan {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.middlepMan p {
+    margin: 0;
+    font-size: 16px;
+    color: #74706B;
+}
+
+.middlepMan span {
+    color: #74706B;
+}
+
+.mapBody {
+    width: 100%;
+    height: 80vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapItself {
+    width: 85%;
+    height: 80%;
+    background-color: #E8EAED;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.lastDiv {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.lastDivBox{
+width: 88%;
+height: 90%;
+display: flex;
+justify-content: center;
+
+
+& textarea{
+    border: 2px solid #E5E6E9;
+}
+
+}
+
+
+.lastDivquarters{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+
+
+.inputHold{
+  width: 100%;
+  display: flex;
+  gap: 20px;
+
+
+}
+
+.nameHold{
+  width: 43%;
+  height: 40px;
+  border: 2px solid #E5E6E9;
+  padding-left: 5px;
+
+}
+
+.inputHoldsubject{
+    width: 100%;
+    display: flex; 
+   
+}
+
+.subjectHold{
+    width: 89%;
+    height: 40px;
+    border: 2px solid #E5E6E9;
+    padding-left: 7px;
+    
+}
+
+.sendClick{
+    width: 130px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+
+
+.lastdivRight{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+    gap: 50px;
+}
+
+.addressDiv{
+   display: flex;
+align-items: center;
+   gap: 20px;
+
+}
+
+.pBox{
+    display: flex;
+    flex-direction: column;
+
+
+
+}
+
+.topTier{
+    font-weight: 800;
+    margin-bottom: 0px;
+    line-height: 0.4;
+
+}
+
+.bottomTier{
+ color: #8A8A8A;  
+ margin-bottom: 0px ;
+ line-height: 0.4;
+
+}
