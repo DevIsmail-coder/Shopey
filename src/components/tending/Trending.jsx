@@ -7,25 +7,25 @@ import "./tranding.css"
 const Trending = () => {
     const trending=[
         {
-            img: "/src/assets/public/latest1.jpg",
+            img: "/latest1.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",
             previous_price: "$300"
         },
         {
-            img: "/src/assets/public/latest2.jpg",
+            img: "/latest2.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",
             previous_price: "$300"
         },
         {
-            img: "/src/assets/public/latest3.jpg",
+            img: "/latest3.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",
             previous_price: "$300"
         },
         {
-            img: "/src/assets/public/latest4.jpg",
+            img: "/latest4.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",
             previous_price: "$300"

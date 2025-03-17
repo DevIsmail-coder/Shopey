@@ -83,6 +83,7 @@ const Login = () => {
        try{
         const res = await axios.post(`${url}/login`, state.userInfo)
         console.log(res);
+        navigate("/")
        }
        catch (err){
         console.log(err);
