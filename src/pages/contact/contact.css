@@ -121,6 +121,8 @@ justify-content: center;
 
 
 & textarea{
+    width: 90%;
+    height: 40%;
     border: 2px solid #E5E6E9;
 }
 
@@ -146,7 +148,7 @@ justify-content: center;
 }
 
 .nameHold{
-  width: 43%;
+  width: 44%;
   height: 40px;
   border: 2px solid #E5E6E9;
   padding-left: 5px;
@@ -160,7 +162,7 @@ justify-content: center;
 }
 
 .subjectHold{
-    width: 89%;
+    width: 90%;
     height: 40px;
     border: 2px solid #E5E6E9;
     padding-left: 7px;
@@ -217,6 +219,7 @@ justify-content: center;
 .pBox{
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
 
 
