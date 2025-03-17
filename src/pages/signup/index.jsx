@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import './signup.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -6,6 +6,7 @@ import axios from "axios";
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Signup = () => {
+    const [load, setLoad] = useState(false)
     const navigate = useNavigate()
     const initialstate = {
         userInfor: {
@@ -14,7 +15,7 @@ const Signup = () => {
             password: "",
             confirmPassword: "",
         },
-        userError: {}
+        userError: {},
     };
 
     const reducer = (state, action) => {
@@ -36,7 +37,7 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
-    console.log(state.userInfor);
+    // console.log(state.userInfor);
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -57,6 +58,11 @@ const Signup = () => {
         return emailRegex.test(email)
     }
 
+    const validatepassword = (password) => {
+        const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
+        return passwordRegex.test(password)
+    }
+
     const handleError = () => {
         let error = {}
         if (state.userInfor.fullName.trim() === "") {
@@ -65,8 +71,8 @@ const Signup = () => {
         if (state.userInfor.email.trim() === "" || !validation(state.userInfor.email)) {
             error.email = "please enter a correct email"
         }
-        if (state.userInfor.password.trim() === "") {
-            error.password = "please enter a correct password"
+        if (state.userInfor.password.trim() === "" || !validatepassword(state.userInfor.password)) {
+            error.password = "please enter a valid password"
         }
         if (state.userInfor.confirmPassword.trim() === "" || state.userInfor.confirmPassword !== state.userInfor.password) {
             error.confirmPassword = "please enter a correct confirmPassword"
@@ -80,7 +86,6 @@ const Signup = () => {
         }
         else {
             return true
-            console.log("form submitted successfully:", state.userInfor);
         }
 
     }
@@ -90,11 +95,12 @@ const Signup = () => {
         if (!handleError()) return
         try {
             const res = await axios.post(`${url}/register`, state.userInfor)
+            setLoad(true)
             console.log(res);
-
+            
         } catch (err) {
             console.log(err);
-
+            setLoad(false)
         }
     }
 
@@ -103,7 +109,7 @@ const Signup = () => {
         <div className="signup-container">
             <form className="signup-box" onSubmit={handleSubmit}>
                 <h2>Sign Up</h2>
-                <p>Create your account to get full access</p>
+                <p className="signupboxp">Create your account to get full access</p>
                 <article className="signupwrap">
                     <main className="signupmain" >
                         <label className="signuplabel">Full name</label>
@@ -115,7 +121,7 @@ const Signup = () => {
                             placeholder="Enter Full name"
                             className="signup-input"
                         />
-                        <p>{state.userError.fullName}</p>
+                        <p className="signupInputError">{state.userError.fullName}</p>
                     </main>
                     <main className="signupmain" >
                         <label className="signuplabel">Email Address</label>
@@ -127,8 +133,7 @@ const Signup = () => {
                             placeholder="Enter email address"
                             className="signup-input"
                         />
-                        <p>{state.userError.email}</p>
-                        <p></p>
+                        <p className="signupInputError">{state.userError.email}</p>
                     </main>
                     <main className="signupmain">
                         <label className="signuplabel">Password</label>
@@ -136,11 +141,11 @@ const Signup = () => {
                             name="password"
                             value={state.userInfor.password}
                             onChange={handleChange}
-                            type="password"
+                            type="text"
                             placeholder="Enter Password"
                             className="signup-input"
                         />
-                        <p>{state.userError.password}</p>
+                        <p className="signupInputError">{state.userError.password}</p>
                     </main>
                     <main className="signupmain">
                         <label className="signuplabel">Confirm Password</label>
@@ -148,18 +153,18 @@ const Signup = () => {
                             name="confirmPassword"
                             value={state.userInfor.confirmPassword}
                             onChange={handleChange}
-                            type="password"
+                            type="text"
                             placeholder="Confirm Password"
                             className="signup-input"
                         />
-                        <p>{state.userError.confirmPassword}</p>
+                        <p  className="signupInputError">{state.userError.confirmPassword}</p>
                     </main>
                 </article>
                 <div className="signup-btn">
                     <span className="signupbtnspan">
                         Don’t have an account? <p className="signup-link" onClick={() => navigate("/loginpage")}>Login</p> here
                     </span>
-                    <button className="signup-button" type="submit">Signup</button>
+                    <button className="signup-button" type="submit">{load ? "loading" : "sign up"}</button>
 
                 </div>
 
