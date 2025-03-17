@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router';
 
 const Header = () => {
     const navigate = useNavigate()
-    const [showDrop, setShowDrow] = useState()
+    // const [showDrop, setShowDrow] = useState(true)
     return (
         <div className='Headerbody'>
             <header className='Headerbodyxx' >
@@ -64,9 +64,8 @@ const Header = () => {
                     <span onClick={() => navigate("/menpage")}>Men</span>
                     <span onClick={() => navigate("/womenpage")}>Women</span>
                     <span onClick={() => navigate("/babypage")}>Baby Collection</span>
-                    <span onMouse={() => setShowDrow(!showDrop)} className='Headerbody2iispan'>Pages 
-                    {
-                            showDrop &&
+                    <span className='Headerbody2iispan'>Pages 
+                  
                             <div className='Headerbody2iidrop'>
                                 <p onClick={() => navigate("/loginpage")}>login</p>
                                 <p onClick={() => navigate("/cart")}>cart</p>
@@ -74,7 +73,7 @@ const Header = () => {
                                 <p onClick={() => navigate("/checkout")}>product checkout</p>
                             </div>
 
-                        }
+    
                     </span>
                     <span onClick={() => navigate("/contact")}>Contact</span>
 
