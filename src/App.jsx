@@ -12,7 +12,6 @@ import Cart from './pages/cart'
 import Contact from './pages/contact'
 import HomeLayout from './routes/HomeLayout'
 import Home from './pages/home'
-import { Toaster } from 'react-hot-toast'
 
 
 
@@ -72,7 +71,6 @@ function App() {
         path: "/signuppage",
         element: <Signup />
       },
-      <Toaster />
     ])
   return <div className='Appbody'>
     <RouterProvider router={routes} />

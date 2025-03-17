@@ -2,7 +2,6 @@ import React, { useReducer, useState } from "react";
 import './signup.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
-import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 
@@ -103,7 +102,6 @@ const Signup = () => {
         } catch (err) {
             setLoad(false)
             console.log(err);
-            // toast.success(err.response.data.message)
             
         }
     }
