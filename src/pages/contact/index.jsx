@@ -78,7 +78,6 @@ const Contact = () => {
                                 <p className='bottomTier'>Send us your query anytime!</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
