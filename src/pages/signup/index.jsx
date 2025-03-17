@@ -2,6 +2,7 @@ import React, { useReducer, useState } from "react";
 import './signup.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 
@@ -96,11 +97,14 @@ const Signup = () => {
         try {
             const res = await axios.post(`${url}/register`, state.userInfor)
             setLoad(true)
+            toast.success(res.message)
+            navigate("/loginpage")
             console.log(res);
-            
         } catch (err) {
-            console.log(err);
             setLoad(false)
+            console.log(err.response.data.message);
+            toast.success(err.response.data.message)
+            
         }
     }
 
@@ -164,7 +168,7 @@ const Signup = () => {
                     <span className="signupbtnspan">
                         Don’t have an account? <p className="signup-link" onClick={() => navigate("/loginpage")}>Login</p> here
                     </span>
-                    <button className="signup-button" type="submit">{load ? "loading" : "sign up"}</button>
+                    <button className="signup-button" type="submit">{load ? "loading..." : "sign up"}</button>
 
                 </div>
 

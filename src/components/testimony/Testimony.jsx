@@ -10,13 +10,13 @@ const testimonials = [
     text: "Everybody is different, which is why we offer styles for every body. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.",
     name: "Petey Cruiser",
     position: "Designer at Colorlib",
-    image: "/src/assets/public/founder-img.png",
+    image: "/founder-img.png",
   },
   {
     text: "Everybody is different, which is why we offer styles for every body. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.",
     name: "Petey Cruiser",
     position: "Designer at Colorlib",
-    image: "/src/assets/public/founder-img.png",
+    image: "/founder-img.png",
   },
  
 ]
