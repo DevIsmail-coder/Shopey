@@ -26,7 +26,7 @@
         font-size: 27px;
     }
 
-    & p{
+    & .loginboxp{
         font-size: 14px;
         color: #301A22;
     }
@@ -48,8 +48,10 @@
     gap: 10px;
 }
 .loginlabel{
-font-size: 16px;
-font-weight: 450;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    font-size: 16px;
 }
 
 
@@ -100,6 +102,11 @@ font-weight: 450;
     & p{
         color: #FF2020;
     }
+}
+
+.logInputError{
+    font-size: 14px;
+    color: #FF2020;
 }
 
 .login-button {

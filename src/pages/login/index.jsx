@@ -1,7 +1,9 @@
 import React, { useReducer } from "react";
 import './login.css'
 import { useNavigate } from "react-router";
+import axios from "axios";
 
+const url = "https://express-buy.onrender.com/api/v1"
 const Login = () => {
     const navigate = useNavigate()
 
@@ -30,7 +32,6 @@ const Login = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
-    console.log(state.userInfo);
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -38,6 +39,13 @@ const Login = () => {
             type: "USERINFO",
             payload: { name, value }
         })
+
+    if(state.userError[name]){
+        dispatch({
+            type: "USERERROR",
+            payload: {...state.userError, [name]: ""} 
+        })
+    }
     }
 
     const validation = (email) => {
@@ -45,29 +53,49 @@ const Login = () => {
         return emailRegex.test(email)
     }
 
-    const handleErr = (e) => {
-        e.preventDefault()
+    const handleErr = () => {
         let error = {}
-
         if (state.userInfo.email.trim() === "" || !validation(state.userInfo.email)) {
             error.email = "please enter a correct email"
         }
         if (state.userInfo.password.trim() === "") {
             error.password = "please enter a correct password"
         }
-        if(Object.keys(error) > 0){
+        if(Object.keys(error).length > 0){
             dispatch({
                 type: "USERERROR",
                 payload: error
             })
+
+            return false
         }
+
+        else{
+            console.log("successfully");
+            
+            return true
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if(!handleErr()) return 
+       try{
+        const res = await axios.post(`${url}/login`, state.userInfo)
+        console.log(res);
+       }
+       catch (err){
+        console.log(err);
+        
+       }
+        
     }
 
     return (
         <div className="login-container">
-            <form className="login-box" onSubmit={handleErr}>
+            <form className="login-box" onSubmit={handleSubmit}>
                 <h2>Login</h2>
-                <p>Enter Login details to get access</p>
+                <p className="loginboxp">Enter Login details to get access</p>
                 <article className="Loginwrap">
                     <main className="Loginmain" >
                         <label className="loginlabel"> Username Or Email Address</label>
@@ -79,7 +107,7 @@ const Login = () => {
                             value={state.userInfo.email}
                             onChange={handleChange}
                         />
-                        <p>{state.userError.email}</p>
+                        <p className="logInputError">{state.userError.email}</p>
                     </main>
                     <main className="Loginmain">
                         <label className="loginlabel">Password</label>
@@ -91,7 +119,7 @@ const Login = () => {
                             value={state.userInfo.password}
                             onChange={handleChange}
                         />
-                          <p>{state.userError.password}</p>
+                          <p className="logInputError">{state.userError.password}</p>
                     </main>
                     <div className="login-options">
                         <label>
