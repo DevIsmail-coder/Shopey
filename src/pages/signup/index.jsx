@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from "react";
 import './signup.css'
-import { useNavigate } from "react-router";conflicts 
+import { useNavigate } from "react-router";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -99,27 +99,13 @@ const Signup = () => {
             setLoad(true)
             navigate("/loginpage")
             console.log(res);
-
-
-            toast.success(res.message)
-            navigate("/loginpage")
-            console.log(res);
-        } catch (err) {
+        }catch(err){
             setLoad(false)
-            console.log(err.response.data.message);
-            toast.success(err.response.data.message)
-            
 
-            console.log(res);
-            
-
-        } catch (err) {
-            setLoad(false)
             console.log(err);
+        } 
 
-                   setLoad(false)
 
-        }
     }
 
 

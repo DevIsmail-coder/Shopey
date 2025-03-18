@@ -83,9 +83,9 @@ const Menpage = () => {
     return (
         <div className='Menpagebody'>
             <article className='Menpageheader'>
-                <h2>Category</h2>
-                <span>
-                    <p>Home</p>
+                <h2 className='Menpageheaderh2x'>Category</h2>
+                <span className='Menpageheaderh2xspan'>
+                    <p className='Menpageheaderh2xspanp'>Home</p>
                     <p>Category</p>
                 </span>
 
