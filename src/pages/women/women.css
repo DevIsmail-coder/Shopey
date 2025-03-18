@@ -1,0 +1,287 @@
+.Menpagebody {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.Menpageheader {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #F3EAD8;
+
+
+    & .Menpageheaderh2x{
+        font-size: 35px;
+        font-weight: 550;
+    }
+
+    & .Menpageheaderh2xspan{
+        width: 140px;
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        justify-content: center;
+        /* background-color: blue; */
+        color: #D4CCBD;
+        gap: 20px;
+    }
+
+    & .Menpageheaderh2xspanp{
+        width: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #74706B;
+    }
+}
+
+
+.Menpagemain{
+    width: 90%;
+    height: 160vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Menpagemaindiv1{
+    width: 23.5%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border: 2px solid #EDEFF2;
+}
+
+.Menpagemaindiv1i{
+   width: 100%;
+   /* height: 250px; */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 17px;
+   padding: 10px;
+   
+
+   & span{
+    width: 85%;
+    height: 43px;
+    display: flex;
+    padding: 15px;
+    border-radius: 22px;
+    border: 2px solid #EDEFF2;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #20184A;
+    position: relative;
+
+    & .Menpagemaindiv1iicon{
+        font-size: 22px;
+        color: #BBB9B5;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+    }
+    & .Menpagemaindiv1iicon.open{
+        transform: rotate(180deg);
+    }
+   }
+}
+
+.Menpagemaindiv1iiconyy{
+    position: absolute;
+    width: 100%;
+    border: 1 px solid #EAEAEA;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    top: 100%;
+    left: 0;
+    z-index: 100;
+
+
+    & h3{
+        padding: 14px;
+        background-color: #F6F6F6;
+    }
+
+    & h3:hover{
+        background-color: #F6F6F6;
+    }
+
+    & .Menpagemaindiv1iicon1p{
+        padding: 14px;
+    }
+
+    & .Menpagemaindiv1iicon1p:hover{
+        background-color: #F6F6F6;
+    }
+        
+
+}
+.Menpagemaindiv2{
+    width: 72%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.Menpagemaindiv2container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+
+}
+
+.Menpagemaindiv2containerii{
+    width: 31%;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+
+    & h4{
+        font-size: 15px;
+        color: #292621;
+        font-weight: 350;
+    }
+}
+
+
+.Menimgholder{
+    width: 90%;
+    position: relative;
+
+
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}
+
+.Menimgholder:hover{
+    transform: scale(1.03);
+    transition: all 0.3s ease-out;
+
+    & .menaction{
+        display: flex;
+    }
+}
+.menaction{
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    right:0;
+    width: 100%;
+    display: none;
+}
+
+.trending_card:hover .card_action{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.menactioni{
+    width: 80%;
+    height: 45px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 30px; */
+}
+
+.menaction:hover{
+    transform: scale(1.03);
+    transition: all 0.3s ease-out;
+    color: red;
+    cursor: pointer;
+}
+
+.menactionixx{
+    width: 33.3%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    font-size: 20px;
+
+
+}
+
+.menactionixx:hover{
+    color: white;
+    background-color: red;
+    transition: all 0.5s ease;
+    display: flex;
+}
+
+.pricetag{
+    display: flex;
+    gap: 20px;
+
+    & p{
+        font-size: 14px;
+        color: #CEBD9C;
+    }
+}
+
+.Menpagemaindiv1h3{
+    width: 83%;
+    font-size: 14.5px;
+    /* background-color: blue; */
+}
+
+.Menpagemaindiv1xx{
+    width: 80%;
+    height: 65px;
+    background-color: yellow;
+}
+
+.Menpagemaindiv1xxx{
+    width: 80%;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    /* background-color: blue; */
+
+    & h3{
+        width: 100%;
+        display: flex;
+        font-size: 14.5px;
+    }
+}
+
+.Menpagemaindiv1xxxdiv{
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    /* background-color: green; */
+    flex-direction: column;
+
+    & p{
+        font-size: 15px;
+        color: #232F55;
+    }
+}
