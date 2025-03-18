@@ -99,13 +99,13 @@ const Signup = () => {
             setLoad(true)
             navigate("/loginpage")
             console.log(res);
-            toast.success(res.message)
-            navigate("/loginpage")
-            console.log(res);
         }catch(err){
             setLoad(false)
+
             console.log(err);
         } 
+
+
     }
 
 
