@@ -2,11 +2,16 @@ import React, { useReducer, useState } from "react";
 import './signup.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Signup = () => {
+<<<<<<< HEAD
     const [load, setLoad] = useState(false)
+=======
+    const [isLoading, setIsLoading] = useState(false)
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
     const navigate = useNavigate()
     const initialstate = {
         userInfor: {
@@ -37,8 +42,11 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
+<<<<<<< HEAD
     // console.log(state.userInfor);
 
+=======
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({
@@ -58,10 +66,17 @@ const Signup = () => {
         return emailRegex.test(email)
     }
 
+<<<<<<< HEAD
     const validatepassword = (password) => {
         const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
         return passwordRegex.test(password)
     }
+=======
+    // const validatepassword = (password) => {
+    //     const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
+    //     return passwordRegex.test(password)
+    // }
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
 
     const handleError = () => {
         let error = {}
@@ -71,7 +86,11 @@ const Signup = () => {
         if (state.userInfor.email.trim() === "" || !validation(state.userInfor.email)) {
             error.email = "please enter a correct email"
         }
+<<<<<<< HEAD
         if (state.userInfor.password.trim() === "" || !validatepassword(state.userInfor.password)) {
+=======
+        if (state.userInfor.password.trim() === "") {
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
             error.password = "please enter a valid password"
         }
         if (state.userInfor.confirmPassword.trim() === "" || state.userInfor.confirmPassword !== state.userInfor.password) {
@@ -94,7 +113,9 @@ const Signup = () => {
         e.preventDefault()
         if (!handleError()) return
         try {
+            setIsLoading(true)
             const res = await axios.post(`${url}/register`, state.userInfor)
+<<<<<<< HEAD
             setLoad(true)
             console.log(res);
             
@@ -102,8 +123,29 @@ const Signup = () => {
             console.log(err);
             setLoad(false)
         }
-    }
+=======
+            setIsLoading(false)
+            console.log(res);
 
+            toast.success(res.data.message)
+            // navigate("/loginpage")
+            console.log(res);
+
+        }catch(err){
+            setIsLoading(false)
+            console.log(err);
+            if(err.response.data.message){
+                toast.error(err.response.data.message)
+            }
+            if(err.message){
+                toast.error(err.message)
+
+        } 
+
+
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
+    }
+    }
 
     return (
         <div className="signup-container">
@@ -164,7 +206,12 @@ const Signup = () => {
                     <span className="signupbtnspan">
                         Don’t have an account? <p className="signup-link" onClick={() => navigate("/loginpage")}>Login</p> here
                     </span>
+<<<<<<< HEAD
                     <button className="signup-button" type="submit">{load ? "loading" : "sign up"}</button>
+=======
+
+                    <button className="signup-button" type="submit">{isLoading ? "loading..." : "sign up"}</button>
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
 
                 </div>
 
@@ -173,4 +220,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default Signup

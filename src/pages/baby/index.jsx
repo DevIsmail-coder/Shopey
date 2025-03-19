@@ -81,85 +81,85 @@ const Baby = () => {
 return (
     <div className='Menpagebody'>
         <article className='Menpageheader'>
-            <h2>Category</h2>
-            <span>
-                <p>Home</p>
+            <h2 className='Menpageheaderh2x'>Category</h2>
+            <span className='Menpageheaderh2xspan'>
+                <p className='Menpageheaderh2xspanp'>Home</p>
                 <p>Category</p>
             </span>
         </article>
-        <main className='Menpagemain'>
-                         <article className='Menpagemaindiv1'>
-                                <div className='Menpagemaindiv1i'>
-                                    <span>Category <MdOutlineKeyboardArrowDown className={`Menpagemaindiv1iicon ${show === "Category" ? "open" : ""}`}
+        <main className='Babymain'>
+                         <article className='Babymaindiv1'>
+                                <div className='Babymaindiv1i'>
+                                    <span>Category <MdOutlineKeyboardArrowDown className={`Babymaindiv1iicon ${show === "Category" ? "open" : ""}`}
                                         onClick={() => showing("Category")}
                                     />
             
                                         {
                                             show === "Category" && (
-                                                <div className='Menpagemaindiv1iiconyy'>
+                                                <div className='Babymaindiv1iiconyy'>
                                                     <h3>Category</h3>
-                                                    <p className='Menpagemaindiv1iicon1p'>Category 1</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Category 2</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Category 3</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Category 4</p>
+                                                    <p className='Babymaindiv1iicon1p'>Category 1</p>
+                                                    <p className='Babymaindiv1iicon1p'>Category 2</p>
+                                                    <p className='Babymaindiv1iicon1p'>Category 3</p>
+                                                    <p className='Babymaindiv1iicon1p'>Category 4</p>
                                                 </div>
                                             )}
             
                                     </span>
-                                    <span>Type  <MdOutlineKeyboardArrowDown className={`Menpagemaindiv1iicon ${show === "Type" ? "open" : ""}`}
+                                    <span>Type  <MdOutlineKeyboardArrowDown className={`Babymaindiv1iicon ${show === "Type" ? "open" : ""}`}
                                         onClick={() => showing("Type")}
                                     />
                                         {
                                             show === "Type" && (
-                                                <div className='Menpagemaindiv1iiconyy'>
+                                                <div className='Babymaindiv1iiconyy'>
                                                     <h3>Type</h3>
-                                                    <p className='Menpagemaindiv1iicon1p'>Type 1</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Type 2</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Type 3</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Type 4</p>
+                                                    <p className='Babymaindiv1iicon1p'>Type 1</p>
+                                                    <p className='Babymaindiv1iicon1p'>Type 2</p>
+                                                    <p className='Babymaindiv1iicon1p'>Type 3</p>
+                                                    <p className='Babymaindiv1iicon1p'>Type 4</p>
                                                 </div>
                                             )
                                         }
                                     </span>
-                                    <span>Size  <MdOutlineKeyboardArrowDown className={`Menpagemaindiv1iicon ${show === "Size" ? "open" : ""}`}
+                                    <span>Size  <MdOutlineKeyboardArrowDown className={`Babymaindiv1iicon ${show === "Size" ? "open" : ""}`}
                                         onClick={() => showing("Size")}
                                     />
                                         {
                                             show === "Size" && (
-                                                <div className='Menpagemaindiv1iiconyy'>
+                                                <div className='Babymaindiv1iiconyy'>
                                                     <h3>Size</h3>
-                                                    <p className='Menpagemaindiv1iicon1p'>Size 1</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Size 2</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Size 3</p>
-                                                    <p className='Menpagemaindiv1iicon1p'>Size 4</p>
+                                                    <p className='Babymaindiv1iicon1p'>Size 1</p>
+                                                    <p className='Babymaindiv1iicon1p'>Size 2</p>
+                                                    <p className='Babymaindiv1iicon1p'>Size 3</p>
+                                                    <p className='Babymaindiv1iicon1p'>Size 4</p>
                                                 </div>
                                             )
                                         }
                                     </span>
-                                    <span>Color  <MdOutlineKeyboardArrowDown className={`Menpagemaindiv1iicon ${show === "Color" ? "open" : ""}`}
+                                    <span>Color  <MdOutlineKeyboardArrowDown className={`Babymaindiv1iicon ${show === "Color" ? "open" : ""}`}
                                         onClick={() => showing("Color")}
                                     />
                                         {
                                             show === "Color" &&
-                                            <div className='Menpagemaindiv1iiconyy'>
+                                            <div className='Babymaindiv1iiconyy'>
                                                 <h3>Color</h3>
-                                                <p className='Menpagemaindiv1iicon1p'>Color 1</p>
-                                                <p className='Menpagemaindiv1iicon1p'>Color 2</p>
-                                                <p className='Menpagemaindiv1iicon1p'>Color 3</p>
-                                                <p className='Menpagemaindiv1iicon1p'>Color 4</p>
+                                                <p className='Babymaindiv1iicon1p'>Color 1</p>
+                                                <p className='Babymaindiv1iicon1p'>Color 2</p>
+                                                <p className='Babymaindiv1iicon1p'>Color 3</p>
+                                                <p className='Babymaindiv1iicon1p'>Color 4</p>
                                             </div>
             
                                         }
                                     </span>
                                 </div>
-                                <h3 className='Menpagemaindiv1h3'>Filter by Price</h3>
-                                <article className='Menpagemaindiv1xx'>
+                                <h3 className='Babymaindiv1h3'>Filter by Price</h3>
+                                <article className='Babymaindiv1xx'>
             
                                 </article>
             
-                                <article className='Menpagemaindiv1xxx' >
+                                <article className='Babymaindiv1xxx' >
                                     <h3>Filter by Genres</h3>
-                                    <div className='Menpagemaindiv1xxxdiv'>
+                                    <div className='Babymaindiv1xxxdiv'>
                                         <p>History</p>
                                         <p>Horror-Thriller</p>
                                         <p>Love-Stories</p>
@@ -168,9 +168,9 @@ return (
                                     </div>
                                 </article>
                                 
-                                <article className='Menpagemaindiv1xxx' >
+                                <article className='Babymaindiv1xxx' >
                                     <h3>Filter by Brand</h3>
-                                    <div className='Menpagemaindiv1xxxdiv'>
+                                    <div className='Babymaindiv1xxxdiv'>
                                         <p>Green Publications</p>
                                         <p>Anondo Publications</p>
                                         <p>Rinku Publications</p>
@@ -179,11 +179,11 @@ return (
                                     </div>
                                 </article>
                             </article>
-            <article className='Menpagemaindiv2'>
-                <div className="Menpagemaindiv2container">
+            <article className='Babymaindiv2'>
+                <div className="Babymaindiv2container">
                     {
                         Menproducts.map((i) => (
-                            <div className="Menpagemaindiv2containerii" key={i.id}>
+                            <div className="Babymaindiv2containerii" key={i.id}>
                                 <div className="Menimgholder">
                                     <img src={i.img} alt="" />
 

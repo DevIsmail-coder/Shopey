@@ -1,11 +1,16 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import './login.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
+<<<<<<< HEAD
+=======
+import toast from "react-hot-toast";
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Login = () => {
     const navigate = useNavigate()
+      const [isLoading, setIsLoading] = useState(false)
 
     const initialstate = {
         userInfo: {
@@ -81,11 +86,22 @@ const Login = () => {
         e.preventDefault()
         if(!handleErr()) return 
        try{
+<<<<<<< HEAD
         const res = await axios.post(`${url}/login`, state.userInfo)
         console.log(res);
        }
        catch (err){
         console.log(err);
+=======
+        setIsLoading(true)
+        const res = await axios.post(`${url}/login`, state.userInfo)
+        setIsLoading(true)
+        toast.success(res.data.message);
+        navigate("/")
+       }
+       catch (err){
+        toast.error(err);
+>>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
         
        }
         
@@ -132,7 +148,7 @@ const Login = () => {
                     <span className="loginbtnspan">
                         Don’t have an account? <p className="signup-link" onClick={() => navigate("/signuppage")}>Sign Up</p> here
                     </span>
-                    <button className="login-button" type="submit">Login</button>
+                    <button className="login-button" type="submit">{isLoading ? "loading..." : "Login"}</button>
 
                 </div>
 

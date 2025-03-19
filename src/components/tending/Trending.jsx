@@ -14,6 +14,7 @@ const Trending = () => {
         },
         {
             img: "/latest2.jpg",
+            img: "/latest2.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",
             previous_price: "$300"
