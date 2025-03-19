@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import "./checkout.css"
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
-import React, { useState } from 'react'
-import "./checkout.css"
-import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
+
 
 const Checkout = () => {
   const [password, setShowpass]= useState(false)

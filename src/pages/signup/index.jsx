@@ -7,11 +7,8 @@ import toast from "react-hot-toast";
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Signup = () => {
-<<<<<<< HEAD
-    const [load, setLoad] = useState(false)
-=======
     const [isLoading, setIsLoading] = useState(false)
->>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
+
     const navigate = useNavigate()
     const initialstate = {
         userInfor: {
@@ -42,11 +39,9 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
-<<<<<<< HEAD
-    // console.log(state.userInfor);
 
 =======
->>>>>>> f42d705a128a4321ce307548bfa62b291b11507d
+
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({
