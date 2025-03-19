@@ -2,11 +2,12 @@ import React, { useReducer, useState } from "react";
 import './signup.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Signup = () => {
-    const [load, setLoad] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
     const initialstate = {
         userInfor: {
@@ -37,6 +38,7 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
+
     // console.log(state.userInfor);
 
     const handleChange = (e) => {
@@ -58,10 +60,10 @@ const Signup = () => {
         return emailRegex.test(email)
     }
 
-    const validatepassword = (password) => {
-        const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
-        return passwordRegex.test(password)
-    }
+    // const validatepassword = (password) => {
+    //     const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
+    //     return passwordRegex.test(password)
+    // }
 
     const handleError = () => {
         let error = {}
@@ -71,7 +73,8 @@ const Signup = () => {
         if (state.userInfor.email.trim() === "" || !validation(state.userInfor.email)) {
             error.email = "please enter a correct email"
         }
-        if (state.userInfor.password.trim() === "" || !validatepassword(state.userInfor.password)) {
+        if (state.userInfor.password.trim() === "") {
+
             error.password = "please enter a valid password"
         }
         if (state.userInfor.confirmPassword.trim() === "" || state.userInfor.confirmPassword !== state.userInfor.password) {
@@ -94,16 +97,29 @@ const Signup = () => {
         e.preventDefault()
         if (!handleError()) return
         try {
+            setIsLoading(true)
             const res = await axios.post(`${url}/register`, state.userInfor)
-            setLoad(true)
+            setIsLoading(false)
             console.log(res);
-            
-        } catch (err) {
-            console.log(err);
-            setLoad(false)
-        }
-    }
 
+            toast.success(res.data.message)
+            // navigate("/loginpage")
+            console.log(res);
+
+        }catch(err){
+            setIsLoading(false)
+            console.log(err);
+            if(err.response.data.message){
+                toast.error(err.response.data.message)
+            }
+            if(err.message){
+                toast.error(err.message)
+
+        } 
+
+
+    }
+    }
 
     return (
         <div className="signup-container">
@@ -164,7 +180,9 @@ const Signup = () => {
                     <span className="signupbtnspan">
                         Don’t have an account? <p className="signup-link" onClick={() => navigate("/loginpage")}>Login</p> here
                     </span>
-                    <button className="signup-button" type="submit">{load ? "loading" : "sign up"}</button>
+
+                    <button className="signup-button" type="submit">{isLoading ? "loading..." : "sign up"}</button>
+
 
                 </div>
 
@@ -173,4 +191,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default Signup

@@ -12,6 +12,9 @@ import Cart from './pages/cart'
 import Contact from './pages/contact'
 import HomeLayout from './routes/HomeLayout'
 import Home from './pages/home'
+import Email from './pages/emailVerification'
+import Password from './pages/forgetpassword'
+import Reset from './pages/resetpassword'
 
 
 
@@ -71,7 +74,19 @@ function App() {
         path: "/signuppage",
         element: <Signup />
       },
-      
+      {
+        path: "/emailverification/:token",
+        element: <Email />
+      },
+      {
+        path: "/forgetpassword",
+        element: <Password/>
+      },
+      {
+        path: "/resetpassword/:token",
+        element: <Reset />
+      }
+
     ])
   return <div className='Appbody'>
     <RouterProvider router={routes} />

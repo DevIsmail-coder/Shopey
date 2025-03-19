@@ -1,11 +1,13 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import './login.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Login = () => {
     const navigate = useNavigate()
+      const [isLoading, setIsLoading] = useState(false)
 
     const initialstate = {
         userInfo: {
@@ -81,11 +83,14 @@ const Login = () => {
         e.preventDefault()
         if(!handleErr()) return 
        try{
+        setIsLoading(true)
         const res = await axios.post(`${url}/login`, state.userInfo)
-        console.log(res);
+        setIsLoading(true)
+        toast.success(res.data.message);
+        navigate("/")
        }
        catch (err){
-        console.log(err);
+        toast.error(err);
         
        }
         
@@ -125,14 +130,14 @@ const Login = () => {
                         <label>
                             <input type="checkbox" /> Keep Me Logged In
                         </label>
-                        <a href="#" className="forgot-password">Forgot Password?</a>
+                        <p className="forgot-password" onClick={() => navigate('/forgetpassword')}>Forgot Password?</p>
                     </div>
                 </article>
                 <div className="login-btn">
                     <span className="loginbtnspan">
                         Don’t have an account? <p className="signup-link" onClick={() => navigate("/signuppage")}>Sign Up</p> here
                     </span>
-                    <button className="login-button" type="submit">Login</button>
+                    <button className="login-button" type="submit">{isLoading ? "loading..." : "Login"}</button>
 
                 </div>
 
