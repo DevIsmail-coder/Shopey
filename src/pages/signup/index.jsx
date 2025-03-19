@@ -38,6 +38,9 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
+
+    // console.log(state.userInfor);
+
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({
@@ -71,6 +74,7 @@ const Signup = () => {
             error.email = "please enter a correct email"
         }
         if (state.userInfor.password.trim() === "") {
+
             error.password = "please enter a valid password"
         }
         if (state.userInfor.confirmPassword.trim() === "" || state.userInfor.confirmPassword !== state.userInfor.password) {
@@ -178,6 +182,7 @@ const Signup = () => {
                     </span>
 
                     <button className="signup-button" type="submit">{isLoading ? "loading..." : "sign up"}</button>
+
 
                 </div>
 
