@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import "./checkout.css"
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
-
-
 const Checkout = () => {
   const [password, setShowpass]= useState(false)
   const [drop, setDrop]=useState(false)
@@ -14,7 +12,6 @@ const Checkout = () => {
   const handleToggleDistrict=()=>{
     setDistrict((prev)=> !prev)
   }
-
   return (
     <div className='checkout_body'>
       <div className="checkut_hero">

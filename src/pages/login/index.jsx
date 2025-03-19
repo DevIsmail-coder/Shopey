@@ -85,13 +85,14 @@ const Login = () => {
        try{
         setIsLoading(true)
         const res = await axios.post(`${url}/login`, state.userInfo)
-        setIsLoading(true)
+        setIsLoading(false)
         toast.success(res.data.message);
         navigate("/")
        }
        catch (err){
         toast.error(err);
-        
+        setIsLoading(false)
+
        }
         
     }

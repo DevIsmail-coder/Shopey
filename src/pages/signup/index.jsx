@@ -38,7 +38,8 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
-    // console.log(state.userInfor);
+
+
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -99,9 +100,10 @@ const Signup = () => {
             const res = await axios.post(`${url}/register`, state.userInfor)
             setIsLoading(false)
             console.log(res);
-
             toast.success(res.data.message)
-            // navigate("/loginpage")
+           
+            navigate("/loginpage")
+
             console.log(res);
         }catch(err){
             setIsLoading(false)
@@ -109,9 +111,7 @@ const Signup = () => {
             if(err.response.data.message){
                 toast.error(err.response.data.message)
             }
-            if(err.message){
-                toast.error(err.message)
-        } 
+
 
 
     }
@@ -178,6 +178,7 @@ const Signup = () => {
                     </span>
 
                     <button className="signup-button" type="submit">{isLoading ? "loading..." : "sign up"}</button>
+
 
 
                 </div>
