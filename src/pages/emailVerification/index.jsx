@@ -15,7 +15,7 @@ const Email = () => {
 
     const handleSubmit = async () => {
         try {
-            const res = await axios.get(`${url}/verify/user/:${token}`)
+            const res = await axios.get(`${url}/verify/user/${token}`)
             toast.success(res.data.message)
             console.log(res);
             if (res.status === 200) {
