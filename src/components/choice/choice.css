@@ -72,7 +72,7 @@
     display: none;
 }
 
-.trending_card:hover .card_actions{
+.product_card:hover .card_actions{
     display: flex;
     align-items: flex-end;
     justify-content: center;

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./checkout.css"
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
-
 const Checkout = () => {
   const [password, setShowpass]= useState(false)
   const [drop, setDrop]=useState(false)
@@ -115,7 +114,60 @@ const Checkout = () => {
                 <textarea name="" className='notes' placeholder='Order notes'></textarea>
               </div>
           </div>
-          <div className="order_details"></div>
+          <div className="order_details">
+            <div className="order_details_header">
+              <h2>Your Order</h2>
+            </div>
+            <div className="details_list">
+              <p>Product</p>
+              <p>Total</p>
+            </div>
+            <div className="details_list">
+              <p>Flash Blackberry</p>
+              <p>$720.00</p>
+            </div>
+            <div className="details_list">
+              <p>Fresh Tomato</p>
+              <p>$720.00</p>
+            </div>
+            <div className="details_list">
+              <p>Flash Brocoli</p>
+              <p>$720.00</p>
+            </div>
+            <div className="details_list">
+              <h4>SUBTOTAL</h4>
+              <p>$2160.00</p>
+            </div>
+            <div className="details_list">
+              <h4>SHIPPING</h4>
+              <p>Flat Rate: $50.00</p>
+            </div>
+            <div className="details_list">
+              <h4>TOTAL</h4>
+              <p>$2210.00</p>
+            </div>
+            <div className="payment_card">
+             <div className="radio_tab">
+             <input type="radio" className='tab_checkbox'/>
+             <p>CHECK PAYMENTS</p>
+             </div>
+             <div className="check_notes">
+              <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+             </div>
+             <div className="radio_tab">
+             <input type="radio" className='tab_checkbox'/>
+             <p>CHECK PAYMENTS</p>
+             </div>
+             <div className="check_notes">
+              <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+             </div>
+             <div className="radio_tab">
+             <input type="checkbox" className='tab_checkbox'/>
+             <p>I’ve read and accept the <span>terms & conditions*</span></p>
+             </div>
+             <button className='checkout_btn'>Proceed to paypal</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

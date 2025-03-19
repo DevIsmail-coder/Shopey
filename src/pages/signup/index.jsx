@@ -38,6 +38,9 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
+
+
+
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({
@@ -56,6 +59,11 @@ const Signup = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email)
     }
+
+    // const validatepassword = (password) => {
+    //     const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
+    //     return passwordRegex.test(password)
+    // }
 
     const handleError = () => {
         let error = {}
@@ -98,6 +106,7 @@ const Signup = () => {
                 payload: {name: "", value: ""}
             })
             navigate("/loginpage")
+
             console.log(res);
         }catch(err){
             setIsLoading(false)
@@ -105,6 +114,7 @@ const Signup = () => {
             if(err.response.data.message){
                 toast.error(err.response.data.message)
             }
+
 
 
     }
@@ -172,11 +182,14 @@ const Signup = () => {
 
                     <button className="signup-button" type="submit">{isLoading ? "loading..." : "sign up"}</button>
 
+
+
                 </div>
 
             </form>
         </div>
     );
 };
+
 
 export default Signup
