@@ -57,11 +57,6 @@ const Signup = () => {
         return emailRegex.test(email)
     }
 
-    // const validatepassword = (password) => {
-    //     const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
-    //     return passwordRegex.test(password)
-    // }
-
     const handleError = () => {
         let error = {}
         if (state.userInfor.fullName.trim() === "") {
@@ -97,21 +92,19 @@ const Signup = () => {
             const res = await axios.post(`${url}/register`, state.userInfor)
             setIsLoading(false)
             console.log(res);
-
             toast.success(res.data.message)
-            // navigate("/loginpage")
+            dispatch({
+                type: "USERINFO",
+                payload: {name: "", value: ""}
+            })
+            navigate("/loginpage")
             console.log(res);
-
         }catch(err){
             setIsLoading(false)
             console.log(err);
             if(err.response.data.message){
                 toast.error(err.response.data.message)
             }
-            if(err.message){
-                toast.error(err.message)
-
-        } 
 
 
     }
