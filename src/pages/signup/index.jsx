@@ -30,6 +30,15 @@ const Signup = () => {
                 return {
                     ...state, userError: action.payload
                 }
+                case 'RESET_USERINFO':
+                    return {
+                        ...state, userInfor: {
+                            fullName: "",
+                            email: "",
+                            password: "",
+                            confirmPassword: "",
+                        }
+                    };
 
             default:
                 return state;
@@ -101,9 +110,8 @@ const Signup = () => {
             setIsLoading(false)
             console.log(res);
             toast.success(res.data.message)
-           
+            dispatch({ type: "RESET_USERINFO" });
             navigate("/loginpage")
-
             console.log(res);
         }catch(err){
             setIsLoading(false)
