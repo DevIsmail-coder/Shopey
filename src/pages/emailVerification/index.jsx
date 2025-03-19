@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './emailVerification.css'
+import './Verification.css'
 import axios from 'axios'
 import { useNavigate, useSearchParams } from 'react-router'
 import toast from 'react-hot-toast'

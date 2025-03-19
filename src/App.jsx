@@ -75,7 +75,7 @@ function App() {
         element: <Signup />
       },
       {
-        path: "/emailverification:token",
+        path: "/emailverification/:token",
         element: <Email />
       },
       {
