@@ -141,7 +141,7 @@ const Login = () => {
                         <label>
                             <input type="checkbox" /> Keep Me Logged In
                         </label>
-                        <a href="#" className="forgot-password">Forgot Password?</a>
+                        <p className="forgot-password" onClick={() => navigate('/forgetpassword')}>Forgot Password?</p>
                     </div>
                 </article>
                 <div className="login-btn">

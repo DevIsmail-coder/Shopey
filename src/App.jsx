@@ -83,7 +83,7 @@ function App() {
         element: <Password/>
       },
       {
-        path: "/resetpassword",
+        path: "/resetpassword/:token",
         element: <Reset />
       }
 
