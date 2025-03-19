@@ -97,6 +97,7 @@ const Signup = () => {
             const res = await axios.post(`${url}/register`, state.userInfor)
             setIsLoading(false)
             console.log(res);
+
             toast.success(res.data.message)
             // navigate("/loginpage")
             console.log(res);
@@ -109,7 +110,7 @@ const Signup = () => {
             }
             if(err.message){
                 toast.error(err.message)
-            }
+
         } 
 
 
