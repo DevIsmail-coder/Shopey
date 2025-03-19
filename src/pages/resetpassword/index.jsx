@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import './resetpassword.css'
 import axios from 'axios'
-
+import { useParams } from 'react-router'
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Reset = () => {
+    const { token } = useParams()
     const [userInput, setUserInput] = useState({
         newPassword:"",
         confirmPassword: "",
