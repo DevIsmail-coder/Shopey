@@ -110,10 +110,7 @@ const Signup = () => {
             }
             if(err.message){
                 toast.error(err.message)
-
         } 
-
-
     }
     }
 
@@ -185,5 +182,6 @@ const Signup = () => {
         </div>
     );
 };
+
 
 export default Signup
