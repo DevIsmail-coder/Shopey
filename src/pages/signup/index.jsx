@@ -38,6 +38,8 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
+    // console.log(state.userInfor);
+
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({
@@ -101,7 +103,6 @@ const Signup = () => {
             toast.success(res.data.message)
             // navigate("/loginpage")
             console.log(res);
-
         }catch(err){
             setIsLoading(false)
             console.log(err);
@@ -111,6 +112,8 @@ const Signup = () => {
             if(err.message){
                 toast.error(err.message)
         } 
+
+
     }
     }
 
@@ -175,6 +178,7 @@ const Signup = () => {
                     </span>
 
                     <button className="signup-button" type="submit">{isLoading ? "loading..." : "sign up"}</button>
+
 
                 </div>
 
