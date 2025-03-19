@@ -48,8 +48,6 @@ const Signup = () => {
     const [state, dispatch] = useReducer(reducer, initialstate)
 
 
-
-
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({
@@ -69,10 +67,6 @@ const Signup = () => {
         return emailRegex.test(email)
     }
 
-    // const validatepassword = (password) => {
-    //     const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
-    //     return passwordRegex.test(password)
-    // }
 
     const handleError = () => {
         let error = {}
