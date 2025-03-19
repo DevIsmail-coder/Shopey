@@ -38,7 +38,6 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
-
     // console.log(state.userInfor);
 
     const handleChange = (e) => {
@@ -74,7 +73,6 @@ const Signup = () => {
             error.email = "please enter a correct email"
         }
         if (state.userInfor.password.trim() === "") {
-
             error.password = "please enter a valid password"
         }
         if (state.userInfor.confirmPassword.trim() === "" || state.userInfor.confirmPassword !== state.userInfor.password) {
@@ -105,7 +103,6 @@ const Signup = () => {
             toast.success(res.data.message)
             // navigate("/loginpage")
             console.log(res);
-
         }catch(err){
             setIsLoading(false)
             console.log(err);
@@ -114,7 +111,6 @@ const Signup = () => {
             }
             if(err.message){
                 toast.error(err.message)
-
         } 
 
 
@@ -190,5 +186,6 @@ const Signup = () => {
         </div>
     );
 };
+
 
 export default Signup

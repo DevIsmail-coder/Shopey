@@ -23,7 +23,7 @@ const Menpage = () => {
             previous_price: "$300"
         },
         {
-            id: 2,
+            id: 2, 
             img: "/latest6.jpg",
             title: "Cahsmere Sweater + Bag",
             price: "$200",
