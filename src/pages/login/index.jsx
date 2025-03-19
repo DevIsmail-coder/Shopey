@@ -26,6 +26,13 @@ const Login = () => {
                 }
             case "USERERROR":
                 return { ...state, userError: action.payload }
+                case 'RESET_USERINFO':
+                    return {
+                        ...state, userInfor: {
+                            email: "",
+                            password: "",
+                        }
+                    };
             default:
                 return state
         }
@@ -87,6 +94,7 @@ const Login = () => {
         const res = await axios.post(`${url}/login`, state.userInfo)
         setIsLoading(false)
         toast.success(res.data.message);
+        dispatch({type: "RESET_USERINFO"})
         navigate("/")
        }
        catch (err){

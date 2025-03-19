@@ -47,6 +47,7 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
+
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({
@@ -105,7 +106,6 @@ const Signup = () => {
             toast.success(res.data.message)
             dispatch({ type: "RESET_USERINFO" });
             navigate("/loginpage")
-
             console.log(res);
         }catch(err){
             setIsLoading(false)
