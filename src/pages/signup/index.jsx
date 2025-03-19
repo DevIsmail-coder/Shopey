@@ -115,7 +115,7 @@ const Signup = () => {
 
 
     }
-
+    }
 
     return (
         <div className="signup-container">
@@ -186,4 +186,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default Signup
