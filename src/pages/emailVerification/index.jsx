@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './Verification.css'
 import axios from 'axios'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
+
 import toast from 'react-hot-toast'
 
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Email = () => {
-    const [searchParams] = useSearchParams()
-    const token = searchParams.get('token')
+    const { token } = useParams()
     const navigate = useNavigate()
 
     const [message, setMessage] = useState("Verifying  your account...")
