@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Verification.css'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router'
+
 import toast from 'react-hot-toast'
 
 const url = "https://express-buy.onrender.com/api/v1"
