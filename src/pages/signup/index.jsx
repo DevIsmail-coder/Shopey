@@ -30,6 +30,15 @@ const Signup = () => {
                 return {
                     ...state, userError: action.payload
                 }
+                case 'RESET_USERINFO':
+                    return {
+                        ...state, userInfor: {
+                            fullName: "",
+                            email: "",
+                            password: "",
+                            confirmPassword: "",
+                        }
+                    };
 
             default:
                 return state;
@@ -37,9 +46,6 @@ const Signup = () => {
     }
 
     const [state, dispatch] = useReducer(reducer, initialstate)
-
-
-
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -60,10 +66,6 @@ const Signup = () => {
         return emailRegex.test(email)
     }
 
-    // const validatepassword = (password) => {
-    //     const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
-    //     return passwordRegex.test(password)
-    // }
 
     const handleError = () => {
         let error = {}
@@ -101,7 +103,7 @@ const Signup = () => {
             setIsLoading(false)
             console.log(res);
             toast.success(res.data.message)
-           
+            dispatch({ type: "RESET_USERINFO" });
             navigate("/loginpage")
 
             console.log(res);
