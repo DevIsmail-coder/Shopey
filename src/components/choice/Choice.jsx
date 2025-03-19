@@ -9,7 +9,6 @@ import { TfiShoppingCart } from "react-icons/tfi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 
-// Sample Product Data
 const products = [
   {
     id: 1,
