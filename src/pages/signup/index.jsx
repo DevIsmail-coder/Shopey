@@ -101,10 +101,7 @@ const Signup = () => {
             setIsLoading(false)
             console.log(res);
             toast.success(res.data.message)
-            dispatch({
-                type: "USERINFO",
-                payload: {name: "", value: ""}
-            })
+           
             navigate("/loginpage")
 
             console.log(res);
