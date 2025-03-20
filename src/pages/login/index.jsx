@@ -10,7 +10,7 @@ const Login = () => {
     useEffect(() => {
         const verify = localStorage.getItem('verify')
         setIsVerified(verify)
-    }, [])
+    }, [verify])
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
 
