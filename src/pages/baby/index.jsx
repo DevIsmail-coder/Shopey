@@ -185,7 +185,9 @@ return (
                         Menproducts.map((i) => (
                             <div className="Babymaindiv2containerii" key={i.id}>
                                 <div className="Menimgholder">
+                                <div className='Babyimgholderimgcov'>
                                     <img src={i.img} alt="" />
+                                    </div>
 
                                     <div className="menaction">
                                         <div className="menactioni">

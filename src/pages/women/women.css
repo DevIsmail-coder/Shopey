@@ -45,9 +45,10 @@
 
 .Menpagemain{
     width: 90%;
-    height: 160vh;
+    /* height: 160vh; */
+    padding: 15px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
 }
 
@@ -149,8 +150,10 @@
     width: 31%;
     height: 330px;
     display: flex;
+    gap: 10px;
+    /* background-color: yellow; */
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
 
@@ -174,7 +177,16 @@
     }
 
 }
+.Womenimgholderimgcov{
+    width: 100%;
+    height: 270px;
 
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
 .Menimgholder:hover{
     transform: scale(1.03);
     transition: all 0.3s ease-out;
@@ -254,7 +266,7 @@
 .Menpagemaindiv1xx{
     width: 80%;
     height: 65px;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .Menpagemaindiv1xxx{

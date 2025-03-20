@@ -5,6 +5,8 @@ import axios from 'axios'
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Password = () => {
+const [isLoading, setIsLoading] = useState(false)
+
     const [userInput, setUserInput] = useState('')
     const [userError, setUserError] = useState('')
 
@@ -36,12 +38,16 @@ const Password = () => {
         e.preventDefault() 
         if(!handleError()) return
         try{
+            setIsLoading(true)
                 const res =  await axios.post(`${url}/forgot_password/user`)
                 console.log(res);
-                
+                setIsLoading(false)
+                toast.success(res.data.message)   
             }
             catch(err){
+                setIsLoading(false)
                 console.log(err);
+                toast.success(err.data.message)
                 
             }
         }
@@ -57,7 +63,7 @@ const Password = () => {
         onChange={handleChange}
         />
         <p>{userError}</p>
-        <button type='submit' className='Passwordbutton'>Reset password</button>
+        <button type='submit' className='Passwordbutton'>{isLoading ? "loading..." : "Reset password"}</button>
       </form>
     </div>
   )

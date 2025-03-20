@@ -102,9 +102,13 @@ const Signup = () => {
             setIsLoading(true)
             const res = await axios.post(`${url}/register`, state.userInfor)
             setIsLoading(false)
-            toast.success(res.data.message)
+            toast.success(res?.data?.message)
             dispatch({ type: "RESET_USERINFO" });
-            navigate("/loginpage")
+            localStorage.setItem("verify", res?.data?.data?.IsVerified)
+            if(res?.data?.message){
+                toast.success("pelase check your email too verify your account")
+            }
+                navigate("/loginpage")
             console.log(res);
         }catch(err){
             setIsLoading(false)

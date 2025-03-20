@@ -3,10 +3,12 @@ import './resetpassword.css'
 import axios from 'axios'
 
 import { useParams } from 'react-router'
+import toast from 'react-hot-toast'
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Reset = () => {
     const { token } = useParams()
+    const [loading, setIsLoading] = useState(false)
     
     const [userInput, setUserInput] = useState({
         newPassword:"",
@@ -46,12 +48,16 @@ const Reset = () => {
         e.preventDefault() 
         if(!handleError()) return
         try{
+            setIsLoading(true)
                 const res =  await axios.post(`${url}/reset_password/user/:${token}`)
                 console.log(res);  
+                setIsLoading(false)
+                toast.success(res.data.message)
             }
             catch(err){
+                setIsLoading(false)
                 console.log(err);
-
+                toast.error(res.data.message)
             }
         }
     
@@ -74,7 +80,7 @@ const Reset = () => {
         onChange={handleChange}
         />
         <p>{userError.confirmPassword}</p>
-        <button type='submit' className='Resetbutton'>Reset password</button>
+        <button type='submit' className='Resetbutton'>{loading ? "loading..." : "Reset password"}</button>
       </form>
     </div>
   )
