@@ -8,9 +8,10 @@ const url = "https://express-buy.onrender.com/api/v1"
 const Login = () => {
     const [IsVerified, setIsVerified] = useState(true)
     useEffect(() => {
-        const verify = localStorage.getItem('verify')
-        setIsVerified(verify === 'true' ? true : false)
-    }, [])
+        const verify = JSON.parse(localStorage.getItem("verify"));
+        setIsVerified(!!verify); 
+    }, []);
+    
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
 
