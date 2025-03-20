@@ -52,12 +52,12 @@ const Reset = () => {
                 const res =  await axios.post(`${url}/reset_password/user/:${token}`)
                 console.log(res);  
                 setIsLoading(false)
-                toast.success(res.data.message)
+                toast.success(res?.data?.message)
             }
             catch(err){
                 setIsLoading(false)
                 console.log(err);
-                toast.error(res.data.message)
+                toast.error(res?.data?.message)
             }
         }
     

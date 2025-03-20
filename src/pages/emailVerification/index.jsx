@@ -11,12 +11,10 @@ const Email = () => {
     const { token } = useParams()
     const navigate = useNavigate()
 
-    const [message, setMessage] = useState("account verify successfully")
-
     const handleSubmit = async () => {
         try {
             const res = await axios.get(`${url}/verify/user/${token}`)
-            toast.success(res.data.message)
+            toast.success(res?.data?.message)
             console.log(res);
             if (res.status === 200) {
                 setTimeout(() => {
@@ -26,7 +24,7 @@ const Email = () => {
         }
         catch (err) {
             console.log(err);
-            toast.error(err.data.message)
+            toast.error(err?.data?.message)
 
         }
     }
@@ -37,7 +35,7 @@ const Email = () => {
     return (
         <div className='Emailbody'>
             <form className='Emailmain'>
-                <h2>{res.status == 200 ? <p className='Emailmainsuccess'>{message}</p> : "Verifying  your account..."}</h2>
+                <h2>{res.status == 200 ? <p className='Emailmainsuccess'>account verify successfully</p> : "Verifying  your account..."}</h2>
             </form>
         </div>
     )
