@@ -188,7 +188,9 @@ const Menpage = () => {
                             Menproducts.map((i) => (
                                 <div className="Menpagemaindiv2containerii" key={i.id}>
                                     <div className="Menimgholder">
-                                        <img src={i.img} alt="" />
+                                    <div className='Menimgholderimgcov'>
+                                    <img src={i.img} alt="" />
+                                    </div>
 
                                         <div className="menaction">
                                             <div className="menactioni">

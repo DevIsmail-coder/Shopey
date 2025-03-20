@@ -30,6 +30,15 @@ const Signup = () => {
                 return {
                     ...state, userError: action.payload
                 }
+                case 'RESET_USERINFO':
+                    return {
+                        ...state, userInfor: {
+                            fullName: "",
+                            email: "",
+                            password: "",
+                            confirmPassword: "",
+                        }
+                    };
 
             default:
                 return state;
@@ -37,8 +46,6 @@ const Signup = () => {
     }
 
     const [state, dispatch] = useReducer(reducer, initialstate)
-
-    // console.log(state.userInfor);
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -59,10 +66,6 @@ const Signup = () => {
         return emailRegex.test(email)
     }
 
-    // const validatepassword = (password) => {
-    //     const passwordRegex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$/;
-    //     return passwordRegex.test(password)
-    // }
 
     const handleError = () => {
         let error = {}
@@ -98,21 +101,22 @@ const Signup = () => {
             setIsLoading(true)
             const res = await axios.post(`${url}/register`, state.userInfor)
             setIsLoading(false)
-            console.log(res);
-
-            toast.success(res.data.message)
-            // navigate("/loginpage")
+            toast.success(res?.data?.message)
+            dispatch({ type: "RESET_USERINFO" });
+            localStorage.setItem("verify", res?.data?.data?.IsVerified)
+            if(res?.data?.message){
+                toast.success("pelase check your email too verify your account")
+            }
+                navigate("/loginpage")
             console.log(res);
         }catch(err){
             setIsLoading(false)
             console.log(err);
-            if(err.response.data.message){
-                toast.error(err.response.data.message)
+            if (err?.response && err?.response?.data && err?.response?.data?.message) {
+                toast.error(err?.response?.data?.message); 
+            } else {
+                toast.error("An error occurred. Please try again.");
             }
-            if(err.message){
-                toast.error(err.message)
-        } 
-
 
     }
     }
@@ -178,6 +182,7 @@ const Signup = () => {
                     </span>
 
                     <button className="signup-button" type="submit">{isLoading ? "loading..." : "sign up"}</button>
+
 
 
                 </div>

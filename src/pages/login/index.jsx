@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import './login.css'
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -6,8 +6,13 @@ import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Login = () => {
+    const [IsVerified, setIsVerified] = useState(true)
+    useEffect(() => {
+        const verify = localStorage.getItem('verify')
+        setIsVerified(verify)
+    }, [])
     const navigate = useNavigate()
-      const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const initialstate = {
         userInfo: {
@@ -26,6 +31,13 @@ const Login = () => {
                 }
             case "USERERROR":
                 return { ...state, userError: action.payload }
+            case 'RESET_USERINFO':
+                return {
+                    ...state, userInfo: {
+                        email: "",
+                        password: "",
+                    }
+                };
             default:
                 return state
         }
@@ -42,12 +54,12 @@ const Login = () => {
             payload: { name, value }
         })
 
-    if(state.userError[name]){
-        dispatch({
-            type: "USERERROR",
-            payload: {...state.userError, [name]: ""} 
-        })
-    }
+        if (state.userError[name]) {
+            dispatch({
+                type: "USERERROR",
+                payload: { ...state.userError, [name]: "" }
+            })
+        }
     }
 
     const validation = (email) => {
@@ -63,7 +75,7 @@ const Login = () => {
         if (state.userInfo.password.trim() === "") {
             error.password = "please enter a correct password"
         }
-        if(Object.keys(error).length > 0){
+        if (Object.keys(error).length > 0) {
             dispatch({
                 type: "USERERROR",
                 payload: error
@@ -72,32 +84,49 @@ const Login = () => {
             return false
         }
 
-        else{
+        else {
             console.log("successfully");
-            
+
             return true
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if(!handleErr()) return 
-       try{
-        setIsLoading(true)
-        const res = await axios.post(`${url}/login`, state.userInfo)
-        setIsLoading(true)
-        toast.success(res.data.message);
-        navigate("/")
-       }
-       catch (err){
-        toast.error(err);
-        
-       }
-        
+        if (!IsVerified) {
+            toast.error("Please verify your account before logging in.");
+            return
+        }
+        if (!handleErr()) return
+        try {
+            setIsLoading(true)
+            const res = await axios.post(`${url}/login`, state.userInfo)
+            setIsLoading(false)
+            toast.success(res?.data?.message);
+            dispatch({ type: "RESET_USERINFO" })
+            navigate("/")
+        }
+        catch (err) {
+            setIsLoading(false)
+            console.log(err.response);
+
+            if (err?.response && err?.response?.data && err?.response?.data?.message) {
+                toast.error(err?.response?.data?.message);
+            } else {
+                toast.error("An error occurred. Please try again.");
+            }
+        }
     }
+
+
 
     return (
         <div className="login-container">
+            {
+                !IsVerified && <header className="loginheader">
+                    !Sorry, Kindly verify your accont to gain access to login. An email have been sent too you for Verification...
+                </header>
+            }
             <form className="login-box" onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 <p className="loginboxp">Enter Login details to get access</p>
@@ -124,7 +153,7 @@ const Login = () => {
                             value={state.userInfo.password}
                             onChange={handleChange}
                         />
-                          <p className="logInputError">{state.userError.password}</p>
+                        <p className="logInputError">{state.userError.password}</p>
                     </main>
                     <div className="login-options">
                         <label>

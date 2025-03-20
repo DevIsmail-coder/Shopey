@@ -16,7 +16,7 @@ const Baby = () => {
     {
         id: 1,
         img: "/latest5.jpg",
-        title: "Cahsmere Sweater + Bag",
+        title: "Cahsmere Sweater + Belt",
         price: "$200",
         previous_price: "$300"
     },
@@ -44,7 +44,7 @@ const Baby = () => {
     {
         id: 5,
         img: "/latest4.jpg",
-        title: "Cahsmere Sweater + Bag",
+        title: "Cahsmere Sweater + shoe",
         price: "$98.00",
         oldPrice: "$120.00",
     },
@@ -185,7 +185,9 @@ return (
                         Menproducts.map((i) => (
                             <div className="Babymaindiv2containerii" key={i.id}>
                                 <div className="Menimgholder">
+                                <div className='Babyimgholderimgcov'>
                                     <img src={i.img} alt="" />
+                                    </div>
 
                                     <div className="menaction">
                                         <div className="menactioni">
