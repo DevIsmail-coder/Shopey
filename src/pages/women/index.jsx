@@ -3,7 +3,6 @@ import { TfiShoppingCart } from "react-icons/tfi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-
 import "./women.css"
 
 const Women = () => {
@@ -66,6 +65,20 @@ const Women = () => {
     {
         id: 8,
         img: "/latest3.jpg",
+        title: "Cahsmere Sweater + Bag",
+        price: "$200",
+        previous_price: "$300"
+    },
+    {
+        id: 9,
+        img: "/latest5.jpg",
+        title: "Cahsmere Sweater + Bag",
+        price: "$200",
+        previous_price: "$300"
+    },
+    {
+        id: 9,
+        img: "/latest5.jpg",
         title: "Cahsmere Sweater + Bag",
         price: "$200",
         previous_price: "$300"
@@ -186,7 +199,9 @@ return (
                         Menproducts.map((i) => (
                             <div className="Womenpagediv2containerii" key={i.id}>
                                 <div className="Menimgholder">
+                                    <div className='Womenimgholderimgcov'>
                                     <img src={i.img} alt="" />
+                                    </div>
 
                                     <div className="menaction">
                                         <div className="menactioni">

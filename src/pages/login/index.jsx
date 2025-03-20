@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Login = () => {
+    const verify = localStorage.getItem(false)
+
     const navigate = useNavigate()
       const [isLoading, setIsLoading] = useState(false)
 
@@ -88,6 +90,10 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if(!verify) {
+            toast.error("Please verify your account before logging in.");
+            return
+        }
         if(!handleErr()) return 
        try{
         setIsLoading(true)
@@ -111,6 +117,11 @@ const Login = () => {
 
     return (
         <div className="login-container">
+           {
+            !verify &&  <header className="loginheader">
+            !Sorry, Kindly verify your accont to gain access to login. An email have been sent too you for Verification...
+        </header>
+           }
             <form className="login-box" onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 <p className="loginboxp">Enter Login details to get access</p>

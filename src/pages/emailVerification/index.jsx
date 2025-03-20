@@ -11,7 +11,7 @@ const Email = () => {
     const { token } = useParams()
     const navigate = useNavigate()
 
-    const [message, setMessage] = useState("Verifying  your account...")
+    const [message, setMessage] = useState("account verify successfully")
 
     const handleSubmit = async () => {
         try {
@@ -21,13 +21,12 @@ const Email = () => {
             if (res.status === 200) {
                 setTimeout(() => {
                     navigate("/loginpage")
-                }, 3000)
+                }, 4000)
             }
         }
         catch (err) {
             console.log(err);
-            toast.success(err.data.message)
-            setMessage("account can be verify")
+            toast.error(err.data.message)
 
         }
     }
@@ -38,7 +37,7 @@ const Email = () => {
     return (
         <div className='Emailbody'>
             <form className='Emailmain'>
-                <h2>{message}</h2>
+                <h2>{res.status == 200 ? <p className='Emailmainsuccess'>{message}</p> : "Verifying  your account..."}</h2>
             </form>
         </div>
     )
