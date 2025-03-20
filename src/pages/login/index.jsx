@@ -6,12 +6,8 @@ import toast from "react-hot-toast";
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Login = () => {
-    const [IsVerified, setIsVerified] = useState(true)
-    useEffect(() => {
-        const verify = localStorage.getItem("verify");
-        setIsVerified(verify ? JSON.parse(verify) : false);
-    }, []);
-    
+    const [IsVerified, setIsVerified] = useState(false)
+
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
 
@@ -86,18 +82,12 @@ const Login = () => {
         }
 
         else {
-            console.log("successfully");
-
             return true
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (!IsVerified) {
-            toast.error("Please verify your account before logging in.");
-            return
-        }
         if (!handleErr()) return
         try {
             setIsLoading(true)
@@ -110,7 +100,9 @@ const Login = () => {
         catch (err) {
             setIsLoading(false)
             console.log(err.response);
-
+            if(err?.response?.data?.message === "Account is not verified, link has been sent to email address"){
+                setIsVerified(true)
+            }
             if (err?.response && err?.response?.data && err?.response?.data?.message) {
                 toast.error(err?.response?.data?.message);
             } else {
@@ -124,9 +116,9 @@ const Login = () => {
     return (
         <div className="login-container">
             {
-                !IsVerified && <header className="loginheader">
+                IsVerified ? <header className="loginheader">
                     !Sorry, Kindly verify your account to gain access to login. An email has been sent to you for verification...
-                </header>
+                </header> : ""
             }
             <form className="login-box" onSubmit={handleSubmit}>
                 <h2>Login</h2>
