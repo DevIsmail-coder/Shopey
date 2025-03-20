@@ -28,7 +28,7 @@ const Login = () => {
                 return { ...state, userError: action.payload }
                 case 'RESET_USERINFO':
                     return {
-                        ...state, userInfor: {
+                        ...state, userInfo: {
                             email: "",
                             password: "",
                         }
@@ -98,11 +98,15 @@ const Login = () => {
         navigate("/")
        }
        catch (err){
-        toast.error(err);
         setIsLoading(false)
-
-       }
+        console.log(err.response);
         
+        if (err.response && err.response.data && err.response.data.message) {
+            toast.error(err.response.data.message); 
+        } else {
+            toast.error("An error occurred. Please try again.");
+        }
+    }
     }
 
     return (

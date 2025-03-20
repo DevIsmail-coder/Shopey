@@ -102,19 +102,17 @@ const Signup = () => {
             setIsLoading(true)
             const res = await axios.post(`${url}/register`, state.userInfor)
             setIsLoading(false)
-            console.log(res);
             toast.success(res.data.message)
             dispatch({ type: "RESET_USERINFO" });
             navigate("/loginpage")
-            console.log(res);
         }catch(err){
             setIsLoading(false)
             console.log(err);
-            if(err.response.data.message){
-                toast.error(err.response.data.message)
+            if (err.response && err.response.data && err.response.data.message) {
+                toast.error(err.response.data.message); 
+            } else {
+                toast.error("An error occurred. Please try again.");
             }
-
-
 
     }
     }
