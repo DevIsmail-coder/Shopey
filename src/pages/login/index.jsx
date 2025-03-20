@@ -93,8 +93,9 @@ const Login = () => {
             setIsLoading(true)
             const res = await axios.post(`${url}/login`, state.userInfo)
             setIsLoading(false)
+            localStorage.setItem("token", res?.data?.token)
             toast.success(res?.data?.message);
-            dispatch({ type: "RESET_USERINFO" })
+            dispatch({ type: "RESET_USERINFO"})
             navigate("/")
         }
         catch (err) {
