@@ -42,12 +42,12 @@ const [isLoading, setIsLoading] = useState(false)
                 const res =  await axios.post(`${url}/forgot_password/user`)
                 console.log(res);
                 setIsLoading(false)
-                toast.success(res.data.message)   
+                toast.success(res?.data?.message)   
             }
             catch(err){
                 setIsLoading(false)
                 console.log(err);
-                toast.success(err.data.message)
+                toast.success(err?.data?.message)
                 
             }
         }
