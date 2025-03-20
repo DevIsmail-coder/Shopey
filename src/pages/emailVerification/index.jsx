@@ -26,6 +26,7 @@ const Email = () => {
         }
         catch (err) {
             console.log(err);
+            toast.success(err.data.message)
             setMessage("account can be verify")
 
         }
