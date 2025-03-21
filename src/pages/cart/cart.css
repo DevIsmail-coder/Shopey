@@ -116,9 +116,15 @@
     justify-content: end;  
 }
 
+.mainpropertyDiv{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 .propertyDiv{
     width: 100%;
-    height: 10%;
+    height: 80px;
     display: flex;
     align-items: center;
     border-bottom: 2px solid #EEEEEE;
