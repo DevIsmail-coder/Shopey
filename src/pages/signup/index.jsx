@@ -103,7 +103,7 @@ const Signup = () => {
             setIsLoading(false)
             toast.success(res?.data?.message)
             dispatch({ type: "RESET_USERINFO" });
-            localStorage.setItem("verify", res?.data?.data?.IsVerified)
+
             if(res?.data?.message){
                 toast.success("pelase check your email too verify your account")
             }

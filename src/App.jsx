@@ -31,10 +31,6 @@ function App() {
             element: <Home />
           },
           {
-            path: "/menpage",
-            element: <Menpage />
-          },
-          {
             path: "/womenpage",
             element: <Women />
           },

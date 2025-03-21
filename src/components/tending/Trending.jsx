@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TfiShoppingCart } from "react-icons/tfi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import "./tranding.css"
+import axios from 'axios';
+
+const url = "https://express-buy.onrender.com/api/v1"
 
 const Trending = () => {
+    const token = localStorage.getItem('token')
+     const [category, setCategory] = useState([])
+
     const trending=[
         {
             img: "/latest1.jpg",
@@ -32,6 +38,23 @@ const Trending = () => {
         }
     ]
 
+    const handleSubmit = async () => {
+        try{
+            const res = await axios.get(`${url}/allCategories`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            console.log(res);
+            setCategory(res?.data?.data || [])
+        }  
+        catch(err){
+            console.log(err);
+            
+        }
+     }
+         console.log(category);
+
   return (
     <div className='tranding_body'>
       <div className="trending_wrapper">
@@ -39,11 +62,11 @@ const Trending = () => {
             <div className="t_left">
                 <h2>Trending This Week</h2>
             </div>
-            <div className="t_right">
-                <h4>Men</h4>
-                <h4>Women</h4>
-                <h4>Baby</h4>
-                <h4>Fashion</h4>
+            <div className="t_right" >
+                    <h4>Men</h4>
+                    <h4>Women</h4>
+                    <h4>Baby</h4>
+                    <h4>Fashion</h4>
             </div>
         </div>
         <div className="trending_card_container">
