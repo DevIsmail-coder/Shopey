@@ -9,7 +9,7 @@ const Login = () => {
     const [IsVerified, setIsVerified] = useState(true)
     useEffect(() => {
         const verify = localStorage.getItem('verify')
-        setIsVerified(verify)
+        setIsVerified(verify === 'true' ? true : false)
     }, [])
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
@@ -124,7 +124,7 @@ const Login = () => {
         <div className="login-container">
             {
                 !IsVerified && <header className="loginheader">
-                    !Sorry, Kindly verify your accont to gain access to login. An email have been sent too you for Verification...
+                    !Sorry, Kindly verify your account to gain access to login. An email has been sent to you for verification...
                 </header>
             }
             <form className="login-box" onSubmit={handleSubmit}>
