@@ -130,10 +130,8 @@
 }
 .Womenpagediv2{
     width: 72%;
-    /* height: 100%; */
-    /* background-color: yellow; */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
 
@@ -144,7 +142,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
-    /* background-color: blue; */
 
 }
 
@@ -156,7 +153,6 @@
     gap: 10px;
     justify-content: center;
     align-items: center;
-    /* background-color: green; */
 
 
     & h4{

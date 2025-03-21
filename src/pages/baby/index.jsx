@@ -1,82 +1,60 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./baby.css"
 import { TfiShoppingCart } from "react-icons/tfi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import axios from 'axios';
 
+const url = "https://express-buy.onrender.com/api/v1"
 const Baby = () => {
+      const token = localStorage.getItem('token')
+        const storedCategoryIDs = JSON.parse(localStorage.getItem("categoryIDs")) || [];
+        const firstId = storedCategoryIDs.length > 0 ? storedCategoryIDs[2] : null
+    
+        console.log(firstId);
+        const [babyproducts, setBabyproducts] = useState([])
 
      const [show, setShow] = useState(null)
   
       const showing = (key) => {
           setShow(currentDiv => currentDiv === key ? null : key)
       }
-  const Menproducts = [
-    {
-        id: 1,
-        img: "/latest5.jpg",
-        title: "Cahsmere Sweater + Belt",
-        price: "$200",
-        previous_price: "$300"
-    },
-    {
-        id: 2,
-        img: "/items3.jpg",
-        title: "Cahsmere Sweater + Bag",
-        price: "$200",
-        previous_price: "$300"
-    },
-    {
-        id: 3,
-        img: "/latest7.jpg",
-        title: "Cahsmere Sweater + Bag",
-        price: "$200",
-        previous_price: "$300"
-    },
-    {
-        id: 4,
-        img: "/latest8.jpg",
-        title: "Cahsmere Sweater + Bag",
-        price: "$200",
-        previous_price: "$300"
-    },
-    {
-        id: 5,
-        img: "/latest4.jpg",
-        title: "Cahsmere Sweater + shoe",
-        price: "$98.00",
-        oldPrice: "$120.00",
-    },
-    {
-        id: 6,
-        img: "/latest1.jpg",
-        title: "Cahsmere Sweater + Bag",
-        price: "$200",
-        previous_price: "$300"
-    },
-    {
-        id: 7,
-        img: "/latest2.jpg",
-        title: "Cahsmere Sweater + Bag",
-        price: "$200",
-        previous_price: "$300"
-    },
-    {
-        id: 8,
-        img: "/latest3.jpg",
-        title: "Cahsmere Sweater + Bag",
-        price: "$200",
-        previous_price: "$300"
-    },
-    {
-        id: 9,
-        img: "/latest4.jpg",
-        title: "Cahsmere Sweater + Bag",
-        price: "$200",
-        previous_price: "$300"
+
+
+const handleSubmit = async () => {
+    try{
+        const res = await axios.get(`${url}/category/${firstId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        console.log(res);
+        setBabyproducts(res?.data.data?.productIds || []);
     }
-];
+    catch(err){
+        console.log(err);
+    }
+ }
+
+ useEffect(() => {
+    handleSubmit()
+ }, [])
+
+ const handleCart = async (id) => {
+    try {
+        const res = await axios.post(`${url}/cart/${id}`, {}, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        console.log(res)
+    }
+    catch(err){
+console.log(err);
+
+    }
+}
 
 return (
     <div className='Menpagebody'>
@@ -182,34 +160,38 @@ return (
             <article className='Babymaindiv2'>
                 <div className="Babymaindiv2container">
                     {
-                        Menproducts.map((i) => (
-                            <div className="Babymaindiv2containerii" key={i.id}>
-                                <div className="Menimgholder">
-                                <div className='Babyimgholderimgcov'>
-                                    <img src={i.img} alt="" />
-                                    </div>
+     babyproducts.length > 0 ? (
+        babyproducts.map((i, _id) => (
+            <div className="Babymaindiv2containerii" key={_id}>
+                <div className="Menimgholder">
+                <div className='Babyimgholderimgcov'>
+                    <img src={i.productImage.imageUrl} alt="" />
+                    </div>
 
-                                    <div className="menaction">
-                                        <div className="menactioni">
-                                            <div className="menactionixx">
-                                                <TfiShoppingCart className='menicons'/>
-                                            </div>
-                                            <div className="menactionixx">
-                                                <IoMdHeartEmpty />
-                                            </div>
-                                            <div className="menactionixx">
-                                                <BiSearch />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h4>{i.title}</h4>
-                                <div className="pricetag">
-                                    <p>{i.price}</p>
-                                    <p>{i.previous_price}</p>
-                                </div>
+                    <div className="menaction">
+                        <div className="menactioni">
+                            <div className="menactionixx">
+                                <TfiShoppingCart className='menicons' onClick={() => handleCart(i._id)}/>
                             </div>
-                        ))
+                            <div className="menactionixx">
+                                <IoMdHeartEmpty />
+                            </div>
+                            <div className="menactionixx">
+                                <BiSearch />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>{i.description}</h4>
+                <div className="pricetag">
+                    <p>{i.price}</p>
+                    <p>{i.previous_price}</p>
+                </div>
+            </div>
+        ))
+     ): (
+        <p>no product available</p>
+     )
                     }
                 </div>
             </article>

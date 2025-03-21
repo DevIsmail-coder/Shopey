@@ -57,7 +57,11 @@ const Reset = () => {
             catch(err){
                 setIsLoading(false)
                 console.log(err);
-                toast.error(res?.data?.message)
+                if (err?.response && err?.response?.data && err?.response?.data?.message) {
+                    toast.error(err?.response?.data?.message);
+                } else {
+                    toast.error("An error occurred. Please try again.");
+                }
             }
         }
     
