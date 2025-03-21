@@ -16,6 +16,7 @@ const Choice = () => {
   const [products, setProducts] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  console.log("hello", products)
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -25,7 +26,8 @@ const Choice = () => {
             Authorization: `Bearer ${token}`, 
           },
         });
-        setProducts(response.data);
+        console.log(response)
+        setProducts(response.data.data);
       } catch (error) {
         setError("Error fetching products");
       } finally {
@@ -40,6 +42,20 @@ const Choice = () => {
       setLoading(false);
     }
   }, [token]);
+  const handleCart = async (id) => {
+    try {
+        const res = await axios.post(`${url}/cart/${id}`, {}, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        console.log(res)
+    }
+    catch(err){
+console.log(err);
+
+    }
+}
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -50,12 +66,12 @@ const Choice = () => {
       <Swiper modules={[Navigation, Pagination]} spaceBetween={20} slidesPerView={4} navigation>
         {products.map((product) => (
           <SwiperSlide key={product.id} className="product_card">
-            <div className="product_img">
-              <img src={product.image} alt={product.name} />
+            <div className="product_img1">
+              <img src={product.productImage.imageUrl} alt={product.description} />
               <div className="card_actions">
                 <div className="shop_action">
                   <div className="t_icons">
-                    <TfiShoppingCart />
+                    <TfiShoppingCart/>
                   </div>
                   <div className="t_icons">
                     <IoMdHeartEmpty />
@@ -66,9 +82,9 @@ const Choice = () => {
                 </div>
               </div>
             </div>
-            <h4 className="product-name">{product.name}</h4>
+            <h4 className="product-name">{product.description}</h4>
             <p className="product-price">
-              {product.price} <span className="old-price">{product.oldPrice}</span>
+              {product.price} 
             </p>
           </SwiperSlide>
         ))}

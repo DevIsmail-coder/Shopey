@@ -59,7 +59,7 @@ const Category_card = () => {
         category.length > 0 ? (
             category.map((i,id) => (
                 <div className="wrapper_card" key={id}>
-                    <img src={i.image}  alt="" />
+                    <img src={i.img}  alt="" />
                     <div className="text">
                         <h4>{i.name}</h4>
                         <p>$1500</p>
