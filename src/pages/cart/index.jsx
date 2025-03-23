@@ -10,25 +10,71 @@ const Cart = () => {
     const token = localStorage.getItem('token')
     const [allCart, setAllCart] = useState([])
 
-    useEffect(() => {
-
-        const handleProduct = async () => {
-            try {
-                const res = await axios.get(`${url}/allCart`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-                console.log(res?.data?.data);
-                setAllCart(res?.data?.data);
-            }
-            catch (err) {
-                console.log(err);
-    
-            }
+    const handleProduct = async () => {
+        if (!token) {
+            console.error("No token found! User might be logged out.");
+            return;
         }
+
+        try {
+            const res = await axios.get(`${url}/allCart`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            console.log(res?.data?.data);
+            setAllCart(res?.data?.data);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
         handleProduct()
-    }, [])
+    }, [token])
+
+    const handleRemoveProduct = async (id) => {
+        console.log("Removing product with ID:", id);
+        try {
+            const res = await axios.patch(`${url}/cart/reduce/${id}`, { quantity: 1 }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            handleProduct()
+            console.log("Removing product with ID:", id);
+            console.log(res);
+                setAllCart(res?.data?.data?.products);
+
+            console.log(res?.data?.data?.products);
+
+            console.log("Cart API Response:", res?.data);
+        }
+        catch (err) {
+            console.log(err);
+
+        }
+    }
+    console.log(allCart);
+
+
+    const handleDelete = async (id) => {
+        console.log("Removing product with ID:", id);
+        try {
+            const res = await axios.delete(`${url}/cart/delete/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            handleProduct()
+            console.log(res);
+
+        } catch (err) {
+            console.log(err);
+
+        }
+    }
 
     return (
         <div className='cartBody'>
@@ -48,12 +94,13 @@ const Cart = () => {
                     <div className='descBox1'>
                         <p className='descBoxp1'>Product</p>
 
-                        <div className='descBox2'>
+                        {/* <div className='descBox2'> */}
                             <p className='descBoxp2'>Price</p>
                             <p className='descBoxp2'>Quantity</p>
-                        </div>
+                        {/* </div> */}
 
-                        <p className='descBoxp3'>Total</p>
+                        <p className='descBoxp2'>Total</p>
+                        <p className='descBoxp3'>Delete</p>
                     </div>
 
 
@@ -61,13 +108,13 @@ const Cart = () => {
 
                         {
                             allCart.length > 0 && allCart.map((cart, index) => (
-                                cart.products.length > 0 && cart.products.map((product, i) => (
-                                    <div className='propertyDiv' key={`${index}-${i}`}>
-                                        <div className='propertyDivA'>
-                                            <span>|</span>
+                                cart.products?.length > 0 && cart.products.map((product, _id) => (
+                                    <div className='propertyDiv' key={`${index}-${_id}`}>
+                                        {/* <div className='propertyDivA'> */}
+                                           
                                             <p className='propertyDiv1'>{product.productName}</p>
                                             <p className='propertyDiv2'> ${product.unitPrice} </p>
-                                        </div>
+                                        {/* </div> */}
 
                                         <div className='propertyDivB'>
                                             <div>
@@ -76,21 +123,19 @@ const Cart = () => {
 
                                             <div className='propertyDivBtn'>
                                                 <button>+</button>
-                                                <button>-</button>
+                                                <button onClick={() => handleRemoveProduct(product.productId)}>-</button>
                                             </div>
                                         </div>
-
-                                        <div className='totalDiv'>
-                                            <p>${product.unitTotal}</p>
-                                        </div>
+                                      
+                                            <p className='totalDiv'>${product.unitTotal}</p>
+                                    
+                                        <span onClick={() => handleDelete(product.productId)} className='deletediv'>remove</span>
                                     </div>
                                 ))
                             ))
                         }
 
                     </main>
-
-
                     <div className='btnDivision'>
                         <div className='btnDivision1A'>
                             <button className='btnDivision1'>Update Cart</button>
@@ -98,21 +143,15 @@ const Cart = () => {
                         </div>
                     </div>
 
-
-
-
                     <div className='subtotal'>
                         <p className='subtotal1'>Subtotal</p>
                         <p className='subtotal1'>$2160.00</p>
-
                     </div>
 
 
 
                     <div className='shipping'>
                         <div className='shipping1'>  <p className='shipping1A'>Shipping</p></div>
-
-
 
                         <div className='shippingDiv2'>
                             <p className='shipping2'>Flat Rate: $2160.00 <input type="checkbox" /></p>

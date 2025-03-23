@@ -158,7 +158,7 @@ const Signup = () => {
                             name="password"
                             value={state.userInfor.password}
                             onChange={handleChange}
-                            type="text"
+                            type="password"
                             placeholder="Enter Password"
                             className="signup-input"
                         />
@@ -170,7 +170,7 @@ const Signup = () => {
                             name="confirmPassword"
                             value={state.userInfor.confirmPassword}
                             onChange={handleChange}
-                            type="text"
+                            type="password"
                             placeholder="Confirm Password"
                             className="signup-input"
                         />
