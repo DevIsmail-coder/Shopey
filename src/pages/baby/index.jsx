@@ -5,6 +5,8 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import axios from 'axios';
+import toast from 'react-hot-toast';
+
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Baby = () => {
@@ -23,6 +25,11 @@ const Baby = () => {
 
 
 const handleSubmit = async () => {
+    if (!token) {
+        toast.error("No token found! User might be logged out.");
+        return;
+    }
+
     try{
         const res = await axios.get(`${url}/category/${firstId}`, {
             headers: {
@@ -48,9 +55,10 @@ const handleSubmit = async () => {
                 'Authorization': `Bearer ${token}`
             }
         })
-        console.log(res)
+        toast.success(res?.data?.message)
     }
     catch(err){
+      
 console.log(err);
 
     }

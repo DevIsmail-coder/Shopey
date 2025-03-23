@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import './forgetpassword.css'
 import axios from 'axios'
+import toast from 'react-hot-toast'
 
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Password = () => {
 const [isLoading, setIsLoading] = useState(false)
+const token = localStorage.getItem('token')
 
     const [userInput, setUserInput] = useState('')
     const [userError, setUserError] = useState('')
@@ -39,7 +41,11 @@ const [isLoading, setIsLoading] = useState(false)
         if(!handleError()) return
         try{
             setIsLoading(true)
-                const res =  await axios.post(`${url}/forgot_password/user`)
+                const res =  await axios.post(`${url}/forgot_password/user`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
                 console.log(res);
                 setIsLoading(false)
                 toast.success(res?.data?.message)   
