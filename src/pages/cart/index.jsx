@@ -93,11 +93,8 @@ const Cart = () => {
                 <div className='cartorderBox'>
                     <div className='descBox1'>
                         <p className='descBoxp1'>Product</p>
-
-                        {/* <div className='descBox2'> */}
                             <p className='descBoxp2'>Price</p>
                             <p className='descBoxp2'>Quantity</p>
-                        {/* </div> */}
 
                         <p className='descBoxp2'>Total</p>
                         <p className='descBoxp3'>Delete</p>
@@ -147,8 +144,6 @@ const Cart = () => {
                         <p className='subtotal1'>Subtotal</p>
                         <p className='subtotal1'>$2160.00</p>
                     </div>
-
-
 
                     <div className='shipping'>
                         <div className='shipping1'>  <p className='shipping1A'>Shipping</p></div>
