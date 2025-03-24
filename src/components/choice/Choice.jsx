@@ -71,7 +71,7 @@ console.log(err);
               <div className="card_actions">
                 <div className="shop_action">
                   <div className="t_icons">
-                    <TfiShoppingCart/>
+                    <TfiShoppingCart onClick={handleCart(product.id)}/>
                   </div>
                   <div className="t_icons">
                     <IoMdHeartEmpty />

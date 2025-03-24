@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './cart.css';
 import { IoMdArrowDropdown } from "react-icons/io";
 import axios from 'axios';
-import { useNavigate } from 'react-router';
 
 
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Cart = () => {
-    const navigate = useNavigate()
     const token = localStorage.getItem('token')
     const [allCart, setAllCart] = useState([])
 
@@ -31,16 +29,6 @@ const Cart = () => {
         }
         handleProduct()
     }, [])
-
-    const handleMen =()=>{
-        navigate("/menpage")
-    }
-    const handleWomen =()=>{
-        navigate("/womenpage")
-    }
-    const handleChildren =()=>{
-        navigate("/babypage")
-    }
 
     return (
         <div className='cartBody'>

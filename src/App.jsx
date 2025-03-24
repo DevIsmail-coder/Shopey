@@ -31,7 +31,7 @@ function App() {
             element: <Home />
           },
           {
-            path: "/cart",
+            path: "/womenpage",
             element: <Women />
           },
           {
