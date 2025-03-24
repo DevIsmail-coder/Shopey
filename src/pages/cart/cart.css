@@ -76,6 +76,7 @@
     height: max-content; 
     display: flex;
     justify-content: center;
+    /* background-color: blue; */
     align-items: center;
     margin-bottom: 20px;
 
@@ -92,28 +93,31 @@
 }
 
 .descBox1{
-    width: 95%;
+    width: 100%;
+    padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* background-color: green; */
+    justify-content: space-between;
 
 }
 
 .descBoxp1{
-    width: 50%;
+    width: 18%;
 
 }
 
 
-.descBox2{
-    width: 35%;
+.descBoxp2{
+    width: 18%;
     display: flex; 
-    justify-content: space-around;
+    justify-content: center;
+    /* background-color: yellow; */
 }
 
 
 .descBoxp3{
-    width: 15%;
+    width: 18%;
     display: flex; 
     justify-content: end;  
 }
@@ -121,6 +125,7 @@
 .mainpropertyDiv{
     width: 100%;
     display: flex;
+    align-items: center;
     gap: 10px;
     flex-wrap: wrap;
 }
@@ -129,21 +134,24 @@
     height: 80px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
     border-bottom: 2px solid #EEEEEE;
 
 }
 
 
-.propertyDivA{
-   width: 65%;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-
+.propertyDiv1{
+    width: 18%;
+}
+.propertyDiv2{
+    width: 18%;
+    display: flex;
+    justify-content: center;
 }
 
 .propertyDivB{
-    width: 25%;
+    width: 18%;
     display: flex;
     justify-content: center;
 }
@@ -151,6 +159,9 @@
 .propertyDivB1{
     width: 50px;
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -168,11 +179,16 @@
 }
 
 .totalDiv{
-    width: 10%;
+    width: 18%;
     display: flex;
-    justify-content: flex-end;
+    justify-content:center;
 }
 
+.deletediv{
+    width: 18%;
+    display: flex;
+    justify-content:flex-end;
+}
 
 .btnDivision{
  width: 100%;

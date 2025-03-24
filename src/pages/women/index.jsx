@@ -5,6 +5,7 @@ import { BiSearch } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import "./women.css"
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const url = "https://express-buy.onrender.com/api/v1"
 const Women = () => {
@@ -23,6 +24,10 @@ const Women = () => {
 
 
     const handleSubmit = async () => {
+        if (!token) {
+            toast.error("No token found! User might be logged out.");
+            return;
+        }
         try {
             const res = await axios.get(`${url}/category/${firstId}`, {
                 headers: {
@@ -49,6 +54,7 @@ const Women = () => {
                 }
             })
             console.log(res)
+            toast.success(res?.data?.message)
         }
         catch(err){
 console.log(err);
