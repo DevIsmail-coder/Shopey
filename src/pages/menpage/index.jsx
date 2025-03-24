@@ -6,12 +6,14 @@ import { BiSearch } from "react-icons/bi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router';
 
 
 
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Menpage = () => {
+    const navigate = useNavigate()
     const token = localStorage.getItem('token')
     const storedCategoryIDs = JSON.parse(localStorage.getItem("categoryIDs")) || [];
     const firstId = storedCategoryIDs.length > 0 ? storedCategoryIDs[1] : null
@@ -57,8 +59,8 @@ const Menpage = () => {
             console.log(res)
             toast.success(res?.data?.message)
         }
-        catch(err){
-console.log(err);
+        catch (err) {
+            console.log(err);
 
         }
     }
@@ -173,19 +175,19 @@ console.log(err);
                                     <div className="Menpagemaindiv2containerii" key={_id}>
                                         <div className="Menimgholder">
                                             <div className='Menimgholderimgcov'>
-                                                <img src={i.productImage.imageUrl} alt="" />
+                                                <img src={i.productImage.imageUrl} alt="" onClick={() => navigate(`/detailspage/${i._id}`)}/>
                                             </div>
 
                                             <div className="menaction">
                                                 <div className="menactioni">
                                                     <div className="menactionixx">
-                                                        <TfiShoppingCart className='menicons' onClick={() => handleCart(i._id)}/>
+                                                        <TfiShoppingCart className='menicons' onClick={() => handleCart(i._id)} />
                                                     </div>
                                                     <div className="menactionixx">
                                                         <IoMdHeartEmpty />
                                                     </div>
                                                     <div className="menactionixx">
-                                                        <BiSearch />
+                                                        <BiSearch  />
                                                     </div>
                                                 </div>
                                             </div>

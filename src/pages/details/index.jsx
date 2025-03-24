@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./details.css";
 import { MdOutlineStarHalf, MdOutlineStar } from "react-icons/md";
 import { FaShareAlt } from "react-icons/fa"; 
+import { useParams } from "react-router";
+import axios from "axios";
 
 
 
@@ -33,27 +35,55 @@ It is often frustrating to attempt to plan meals that are designed for one. Desp
   )
 };
 
+const url = "https://express-buy.onrender.com/api/v1"
+
+
+
 const Details = () => {
+  const {id} = useParams()
+  const token = localStorage.getItem('token')
+  const [details, setDetails] = useState({})
   const [activeTab, setActiveTab] = useState("Description");
+
+
+  const handledetails = async () => {
+    try {
+        const res = await axios.get(`${url}/product/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+  
+        })
+        console.log(res);
+        setDetails(res?.data?.data)
+    }
+    catch (err) {
+  
+    }
+  }
+
+  useEffect(() => {
+    handledetails()
+  }, [id])
 
   return (
     <div className='details'>
       <div className="breadcrumb-container">
         <h1>Product Details</h1>
         <p>
-          <a href="/">Home</a> | Product Details
+         Product Details
         </p>       
       </div>
       <div className="product-card">
         <img
-          src="https://preview.colorlib.com/theme/capitalshop/assets/img/gallery/latest7.jpg"
+          src={details?.productImage?.imageUrl}
           alt="Product"
           className="product-image"
         />
         <div className="product-info">
-          <h2>The Rage of Dragons</h2>
+          <h2>{details.description}</h2>
           <p className="author">By Evan Winter</p>
-          <p className="price">$50.00</p>
+          <p className="price">${details.price}</p>
           <div className="rating">
             <MdOutlineStar/><MdOutlineStar/><MdOutlineStar/><MdOutlineStar/><MdOutlineStarHalf/><span>(120 Reviews)</span>
           </div>
