@@ -39,7 +39,7 @@ function App() {
             element: <Baby/>
           },
           {
-            path: "/detailspage",
+            path: "/detailspage/:id",
             element: <Details />
           },
           {
