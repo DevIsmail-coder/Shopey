@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router';
 
 
+
 const url = "https://express-buy.onrender.com/api/v1"
 
 const Menpage = () => {
@@ -29,6 +30,7 @@ const Menpage = () => {
             toast.error("No token found! User might be logged out.");
             return;
         }
+
         try {
             const res = await axios.get(`${url}/category/${firstId}`, {
                 headers: {

@@ -7,6 +7,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
+
 const url = "https://express-buy.onrender.com/api/v1"
 const Baby = () => {
       const token = localStorage.getItem('token')
@@ -28,6 +29,7 @@ const handleSubmit = async () => {
         toast.error("No token found! User might be logged out.");
         return;
     }
+
     try{
         const res = await axios.get(`${url}/category/${firstId}`, {
             headers: {
@@ -56,6 +58,7 @@ const handleSubmit = async () => {
         toast.success(res?.data?.message)
     }
     catch(err){
+      
 console.log(err);
 
     }
