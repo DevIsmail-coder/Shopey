@@ -47,7 +47,6 @@ const Signup = () => {
 
     const [state, dispatch] = useReducer(reducer, initialstate)
 
-
     const handleChange = (e) => {
         const { name, value } = e.target
         dispatch({

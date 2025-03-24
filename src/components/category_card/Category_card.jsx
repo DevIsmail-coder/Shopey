@@ -50,6 +50,7 @@ const Category_card = () => {
          useEffect(() => {
             handleSubmit()
          }, [])
+          
 
   return (
     <div className='category_card_body'>
@@ -58,7 +59,7 @@ const Category_card = () => {
         category.length > 0 ? (
             category.map((i,id) => (
                 <div className="wrapper_card" key={id}>
-                    <img src= "/items2.jpg"  alt="" />
+                    <img src={i.img}  alt="" />
                     <div className="text">
                         <h4>{i.name}</h4>
                         <p>$1500</p>

@@ -1,6 +1,6 @@
 .cartBody {
     width: 100%;
-    height: auto;
+    height: max-content;
     display: flex;
     flex-direction: column;
 }
@@ -41,6 +41,7 @@
 
 .cartMiddle {
     width: 100%;
+    height: max-content;
     background-color: #F3EAD8;
     display: flex;
     flex-direction: column;
@@ -72,11 +73,12 @@
 }
 
 .cartOrderpage{
-    height: 180vh; 
+    height: max-content; 
     display: flex;
     justify-content: center;
     /* background-color: blue; */
     align-items: center;
+    margin-bottom: 20px;
 
 }
 

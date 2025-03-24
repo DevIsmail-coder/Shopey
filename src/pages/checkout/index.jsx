@@ -12,6 +12,7 @@ const Checkout = () => {
   const handleToggleDistrict=()=>{
     setDistrict((prev)=> !prev)
   }
+
   return (
     <div className='checkout_body'>
       <div className="checkut_hero">
