@@ -173,7 +173,7 @@ return (
             <div className="Babymaindiv2containerii" key={_id}>
                 <div className="Menimgholder">
                 <div className='Babyimgholderimgcov'>
-                    <img src={i.productImage.imageUrl} alt="" />
+                    <img src={i.productImage.imageUrl} alt="" onClick={() => navigate(`/detailspage/${i._id}`)}/>
                     </div>
 
                     <div className="menaction">

@@ -172,7 +172,7 @@ console.log(err);
                                         <div className="Womenpagediv2containerii" key={_id}>
                                             <div className="Menimgholder">
                                                 <div className='Womenimgholderimgcov'>
-                                                    <img src={i.productImage.imageUrl} alt="" />
+                                                    <img src={i.productImage.imageUrl} alt="" onClick={() => navigate(`/detailspage/${i._id}`)}/>
                                                 </div>
 
                                                 <div className="menaction">
